@@ -23,7 +23,7 @@ async function scrapeEmail(url) {
 
 	const [el] = await page.$x('/html/body/section[2]/div/div[1]/div[1]/dl/dd/span');
 	const email = await el.getProperty('textContent');
-	const emailTXT = await text.jsonValue();
+	const emailTXT = await email.jsonValue();
 
 	return emailTXT;
 }
