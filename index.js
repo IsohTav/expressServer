@@ -1,10 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 
 const server = express();
 
 const PORT = 8000;
 
-
+app.use(bodyParser.text()) 
 
 server.get('/', (req, res) => {
 	res.json({hello: "world"});
