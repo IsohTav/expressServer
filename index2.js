@@ -33,8 +33,7 @@ const data1info = "";
 
 server.post('/api/data1', (req, res) => {
 	    
-	    const data1 = JSON.stringify(req.body);
-	    data1info.push(data1);
+	    const data1info = JSON.stringify(req.body);
 	    res.status(201).send(data1info);
 		console.log(data1info);
 
