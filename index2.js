@@ -42,7 +42,7 @@ server.post('/api/data1', (req, res) => {
 
 server.post('/api/scrape1', async (req, res) => {
 	    
-	    const scrapedData = await scrapeItem(JSON.stringify(req.body));
+	    const scrapedData = await scrapeItem(req.body);
 		res.send(scrapedData);
 		console.log(scrapedData);
 
