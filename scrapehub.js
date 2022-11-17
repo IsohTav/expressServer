@@ -39,7 +39,7 @@ server.post('/api/scrapeUserprofile', async (req, res) => {
 	    const scrapedData = await scrapeItem(data1txt);
 		res.send(scrapedData);
 		console.log(scrapedData);
-
+		data1.length = 0;
 		
 	    });
 
