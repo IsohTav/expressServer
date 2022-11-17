@@ -28,21 +28,22 @@ async function scrapeItem(url) {
 	return textTXT;
 }
 
-const data1info = '';
+const data1 = [];
 
 
 server.post('/api/data1', (req, res) => {
 	    
-	    const data1info = JSON.stringify(req.body);
-	    res.status(201).send(data1info);
-		console.log(data1info);
+	    const data1info = req.body;
+	    data1.push(data1info);
+	    res.status(201).send(data1);
+		console.log(data1);
 
 
 	    });
 
 server.post('/api/scrape1', async (req, res) => {
 	    
-	    const scrapedData = await scrapeItem('https://www.onlinejobs.ph/jobseekers/info/87665');
+	    const scrapedData = await scrapeItem(JSON.stringify(data1));
 		res.send(scrapedData);
 		console.log(scrapedData);
 
