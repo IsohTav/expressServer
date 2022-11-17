@@ -4,7 +4,7 @@ const server = express();
 
 const PORT = 8000;
 
-server.use(express.json());
+
 
 server.get('/', (req, res) => {
 	res.json({hello: "world"});
@@ -18,8 +18,9 @@ server.post('/api/data1', (req, res) => {
 	    
 	    const data1info = req.body;
 	    data1.push(data1info);
+		console.log(data1info);
 		console.log(data1);
-	    res.status(201).json(data1info);
+	    res.status(201).send(data1info);
 		
 
 
