@@ -35,9 +35,9 @@ server.post('/api/data1', (req, res) => {
 	    
 	    const data1info = req.body;
 	    data1.push(data1info);
-	    const scrapedData = scrapeItem(data1);
+	    const scrapedData = JSON.stringify(scrapeItem(data1));
 
-	    res.status(201).send(scrapedData);
+	    res.status(201).send();
 		
 
 
