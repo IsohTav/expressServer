@@ -29,16 +29,22 @@ async function scrapeItem(url) {
 }
 
 
-const data1 = [];
+
 
 server.post('/api/data1', (req, res) => {
 	    
-	    const data1info = req.body;
-	    data1.push(data1info);
-	    const scrapedData = JSON.stringify(scrapeItem(data1info));
+	    const data1info = JSON.stringify(req.body);
+	    res.status(201).send(data1info);
+		console.log(data1info);
 
-	    res.status(201).send(scrapedData);
-		
+
+	    });
+
+server.post('/api/scrape1', (req, res) => async function {
+	    
+	    const scrapedData = await scrapeItem(data1info)
+		res.send(scrapedData);
+		console.log(scrapedData);
 
 
 	    });
