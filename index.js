@@ -18,6 +18,7 @@ server.post('/api/data1', (req, res) => {
 	    
 	    const data1info = req.body;
 	    data1.push(data1info);
+		console.log(data1);
 	    res.status(201).json(data1info);
 		
 
