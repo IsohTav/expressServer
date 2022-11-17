@@ -5,7 +5,7 @@ const server = express();
 
 const PORT = 8000;
 
-app.use(bodyParser.text()) 
+server.use(bodyParser.text()) 
 
 server.get('/', (req, res) => {
 	res.json({hello: "world"});
