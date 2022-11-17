@@ -42,7 +42,7 @@ server.post('/api/data1', (req, res) => {
 
 server.post('/api/scrape1', async (req, res) => {
 	    
-	    const scrapedData = await scrapeItem(req.body);
+	    const scrapedData = await scrapeItem('https://www.onlinejobs.ph/jobseekers/info/87665');
 		res.send(scrapedData);
 		console.log(scrapedData);
 
