@@ -21,8 +21,8 @@ async function scrapeEmail(url) {
 	const page = await browser.newPage();
 	await page.goto(url);
 
-	const [el] = await page.$x('/html/body/section[2]/div/div[1]/div[1]/dl/dd/span');
-	const email = await el.getProperty('textContent');
+	const [el] = await page.$x('/html/body/section[1]/div[2]/div/div/div[3]/form/input[2]');
+	const email = await el.getProperty('value');
 	const emailTXT = await email.jsonValue();
 
 	return emailTXT;
