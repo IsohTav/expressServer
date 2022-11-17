@@ -28,7 +28,7 @@ async function scrapeItem(url) {
 	return textTXT;
 }
 
-const data1info = "";
+const data1info = '';
 
 
 server.post('/api/data1', (req, res) => {
