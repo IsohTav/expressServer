@@ -28,12 +28,12 @@ async function scrapeItem(url) {
 	return textTXT;
 }
 
-const data1info = ;
+const data1info = "";
 
 
 server.post('/api/data1', (req, res) => {
 	    
-	    const data1info = JSON.stringify(req.body);
+	    data1info.push = JSON.stringify(req.body);
 	    res.status(201).send(data1info);
 		console.log(data1info);
 
