@@ -17,7 +17,6 @@ const data1 = [];
 server.post('/api/data1', (req, res) => {
 	    
 	    const data1info = req.body;
-	    data1info.id = shortid.generate();
 	    data1.push(data1info);
 	    res.status(201).json(data1info);
 		
