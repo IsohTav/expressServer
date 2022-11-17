@@ -15,28 +15,28 @@ server.get('/', (req, res) => {
 
 
 
-async function scrapeItem(url) {
+async function scrapeEmail(url) {
 	
 	const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
 	const page = await browser.newPage();
 	await page.goto(url);
 
-	const [el] = await page.$x('/html/body/section[2]/div/div[1]/div[1]/dl/dd/span');
-	const text = await el.getProperty('textContent');
-	const textTXT = await text.jsonValue();
+	const [el] = await page.$x('/html/body/section[1]/div[2]/div/div/div[3]/form/input[2]');
+	const email = await el.getProperty('value');
+	const emailTXT = await text.jsonValue();
 
-	return textTXT;
+	return emailTXT;
 }
 
 const data1 = [];
 
 
-server.post('/api/scrapeUserprofile', async (req, res) => {
+server.post('/scraping/profile', async (req, res) => {
 	    
 	    const data1info = req.body;
 	    data1.push(data1info);
 	    const data1txt = data1.toString();
-	    const scrapedData = await scrapeItem(data1txt);
+	    const scrapedData = await scrapeEmail(data1txt);
 		res.send(scrapedData);
 		console.log(scrapedData);
 		data1.length = 0;
