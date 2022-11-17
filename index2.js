@@ -40,7 +40,7 @@ server.post('/api/data1', (req, res) => {
 
 	    });
 
-server.post('/api/scrape1', (req, res) => async function {
+server.post('/api/scrape1', async (req, res) => {
 	    
 	    const scrapedData = await scrapeItem(data1info)
 		res.send(scrapedData);
