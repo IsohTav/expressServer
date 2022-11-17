@@ -12,7 +12,7 @@ server.get('/', (req, res) => {
 server.post('/api/data1', (req, res) => {
 	    
 	    const data1 = req.body;
-	console.log(data1);
+		res.json(data1)
 	    
 	    });
 
