@@ -40,7 +40,7 @@ server.post('/api/scrapeUserprofile', async (req, res) => {
 		res.send(scrapedData);
 		console.log(scrapedData);
 
-		data1 = [];
+		let data1 = [];
 	    });
 
 
