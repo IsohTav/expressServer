@@ -31,7 +31,7 @@ server.post('/test1', (req, res) => {
 });
 
 
-const data2 = data[];
+
 
 server.get('/test2', (req,res) => {
 	console.log(data2);
