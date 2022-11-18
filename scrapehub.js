@@ -36,10 +36,28 @@ async function scrapeEmail(url) {
 
 const data1 = [];
 
+const email1 = [];
 
-function onlineJobsContact (emailhidden) {
 
-fetch("https://www.onlinejobs.ph/contact/", {
+
+server.post('/scraping/profile', async (req, res) => {
+	    
+	    const data1info = req.body;
+	    data1.push(data1info);
+	    const data1txt = data1.toString();
+	    const scrapedData = await scrapeEmail(data1txt);
+		res.send(scrapedData);
+		console.log(scrapedData);
+		email1.push(scrapedData);
+		data1.length = 0;
+		
+	    });
+
+
+server.get('/message', (req, res) => {
+	console.log(email1);
+
+	fetch("https://www.onlinejobs.ph/contact/", {
   "headers": {
     "accept": "*/*",
     "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
@@ -55,26 +73,12 @@ fetch("https://www.onlinejobs.ph/contact/", {
     "Referer": "https://www.onlinejobs.ph/jobseekers/info/1457271",
     "Referrer-Policy": "strict-origin-when-cross-origin"
   },
-  "body": "csrf-token=88e4f55b16284a5a93a90a108d2c8503&contact_email=${emailhidden}&back_id=1457271&job_id=0&op=1&from_modal=1&info%5Bname%5D=Steven+Greffe&info%5Bemail%5D=admin%40findmyva.com.au&info%5Bsubject%5D=test&Template=&info%5Bmessage%5D=test",
+  "body": "csrf-token=88e4f55b16284a5a93a90a108d2c8503&contact_email=${email1}&back_id=1457271&job_id=0&op=1&from_modal=1&info%5Bname%5D=Steven+Greffe&info%5Bemail%5D=admin%40findmyva.com.au&info%5Bsubject%5D=test&Template=&info%5Bmessage%5D=test",
   "method": "POST"
 });
+	res.send('done')
 
-};
-
-
-server.post('/scraping/profile', async (req, res) => {
-	    
-	    const data1info = req.body;
-	    data1.push(data1info);
-	    const data1txt = data1.toString();
-	    const scrapedData = await scrapeEmail(data1txt);
-	    onlineJobsContact(scrapedData);
-		res.send(scrapedData);
-		console.log(scrapedData);
-		data1.length = 0;
-		
-	    });
-
+});
 
 
 server.listen(8000, () => {
