@@ -261,9 +261,7 @@ async function scrapeEmail(url) {
 	const email = await el3.getProperty('value');
 	const emailTXT = await email.jsonValue();
 
-	const [el4] = await page.$x('/html/body/section[2]/div/div[1]/div[1]/dl/dd/span');
-	const salary = await el4.getProperty('textContent');
-	const salaryTXT = await salary.jsonValue();
+	
 
 	const [el5] = await page.$x('/html/body/section[2]/div/div[2]/div/dl/dd/span');
 	const exp = await el5.getProperty('textContent');
@@ -282,7 +280,7 @@ async function scrapeEmail(url) {
 
 	const jsonMap = JSON.stringify(Object.fromEntries(map));
 	console.log(jsonMap);
-	const arrayMap = [nameTXT,imgTXT,emailTXT,salaryTXT,expTXT];
+	const arrayMap = [nameTXT,imgTXT,emailTXT,expTXT];
 
 	return (arrayMap);
 
