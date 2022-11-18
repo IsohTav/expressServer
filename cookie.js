@@ -241,7 +241,7 @@ async function scrapeEmail(url) {
 	const img = await el2.getProperty('src');
 	const imgTXT = await img.jsonValue();
 
-	console.log(name,img);
+	console.log(nameTXT,imgTXT);
 
 
 
