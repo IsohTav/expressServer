@@ -275,7 +275,7 @@ async function scrapeEmail(url) {
 	console.log(jsonMap);
 	const arrayMap = [nameTXT,imgTXT,emailTXT];
 
-	return (nameTXT,imgTXT,emailTXT);
+	return (arrayMap);
 
 	browser.close();
 };
@@ -297,7 +297,8 @@ server.post('/scraping/profile', async (req, res) => {
 	    data1.push(data1info);
 	    const data1txt = data1.toString();
 	    const scrapedData = await scrapeEmail(data1txt);
-		res.send(scrapedData);
+	    const scrapedDataString = scrapedData.toString();
+		res.send(scrapedDataString);
 		data1.length = 0;
 		
 	    });
