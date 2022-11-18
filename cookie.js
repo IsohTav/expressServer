@@ -7,9 +7,6 @@ async function scrapeEmail(url) {
 	const page = await browser.newPage();
 
 	var cookies = [
-		{
-			"name": "cookie1",
-			"value": "[
 {
     "domain": ".onlinejobs.ph",
     "expirationDate": 1668754394.289118,
@@ -229,21 +226,7 @@ async function scrapeEmail(url) {
     "value": "P3QpSq2BFRKCVLo17n9LP0EDarb0FoA8",
     "id": 16
 }
-]",
-			"domain": "onlinejobs.ph"
-
-		},
-		{
-			      "name": "sample-cookie2",
-            "value": "2",
-            "domain": "pptr.dev"
-
-		}
-
-
-
-
-	];
+];
 
 
 	await page.setCookie(...cookies);
