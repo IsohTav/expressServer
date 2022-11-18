@@ -38,4 +38,4 @@ server.get('/test2', (req,res) => {
 	res.JSON(data2);
 
 
-}):
+});
