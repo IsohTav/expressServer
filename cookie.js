@@ -243,6 +243,15 @@ async function scrapeEmail(url) {
 
 	console.log(nameTXT,imgTXT);
 
+	const map = new Map([
+			['name', `${nameTXT}`],
+			['imageurl', `${imgTXT}`],
+
+
+		]);
+
+	const jsonMap = JSON.stringify(Object.fromEntries(map));
+	console.log(jsonMap);
 
 
 	browser.close();
