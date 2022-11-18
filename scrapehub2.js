@@ -295,7 +295,7 @@ server.post('/scraping/profile', async (req, res) => {
 	    data1.push(data1info);
 	    const data1txt = data1.toString();
 	    const scrapedData = await scrapeEmail(data1txt);
-		res.json(scrapedData);
+		res.send(scrapedData.name);
 		data1.length = 0;
 		
 	    });
