@@ -51,7 +51,15 @@ server.post('/scraping/profile', async (req, res) => {
 	    });
 
 
+server.post('test1', (req,res) => {
 
+	const respond1 = req.body.respond1;
+	const respond 2 = req.body.respond2;
+	res.json(respond1);
+	console.log(respond2);
+
+
+});
 
 
 
