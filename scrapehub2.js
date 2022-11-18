@@ -273,7 +273,6 @@ async function scrapeEmail(url) {
 			['name', `${nameTXT}`],
 			['imageurl', `${imgTXT}`],
 			['contactEmail', `${emailTXT}`],
-			['salary', `${salaryTXT}`],
 			['exp', `${expTXT}`],
 
 		]);
