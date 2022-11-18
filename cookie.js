@@ -237,9 +237,10 @@ async function scrapeEmail(url) {
 	const email = await el.getProperty('textContent');
 	const emailTXT = await email.jsonValue();
 
-	return emailTXT;
+	console.log(emailTXT);
+
+	browser.close();
 };
 
-const result = scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/1457271');
+scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/1457271');
 
-console.log(result);
