@@ -39,7 +39,7 @@ const data1 = [];
 
 function onlineJobsContact (emailhidden) {
 
-		fetch("https://www.onlinejobs.ph/contact/", {
+fetch("https://www.onlinejobs.ph/contact/", {
   "headers": {
     "accept": "*/*",
     "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
@@ -55,7 +55,7 @@ function onlineJobsContact (emailhidden) {
     "Referer": "https://www.onlinejobs.ph/jobseekers/info/1457271",
     "Referrer-Policy": "strict-origin-when-cross-origin"
   },
-  "body": "csrf-token=88e4f55b16284a5a93a90a108d2c8503&contact_email=${emailhidden}%2Fd1djzHtOj9IQcfhSvL4oKY5Xgpzxlw5NSe1On0h8KBCT3ByvB%2FWLXZG4Cn&back_id=1457271&job_id=0&op=1&from_modal=1&info%5Bname%5D=Steven+Greffe&info%5Bemail%5D=admin%40findmyva.com.au&info%5Bsubject%5D=test&Template=&info%5Bmessage%5D=test",
+  "body": "csrf-token=88e4f55b16284a5a93a90a108d2c8503&contact_email=${emailhidden}&back_id=1457271&job_id=0&op=1&from_modal=1&info%5Bname%5D=Steven+Greffe&info%5Bemail%5D=admin%40findmyva.com.au&info%5Bsubject%5D=test&Template=&info%5Bmessage%5D=test",
   "method": "POST"
 });
 
