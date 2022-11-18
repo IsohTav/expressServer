@@ -233,11 +233,17 @@ async function scrapeEmail(url) {
 
 	await page.goto(url);
 
-	const [el] = await page.$x('/html/body/section[1]/div[2]/div/div/div[3]/form/input[2]');
-	const email = await el.getProperty('value');
-	const emailTXT = await email.jsonValue();
+	const [el] = await page.$x('/html/body/section[1]/div[2]/div/div/h4');
+	const name = await el.getProperty('textContent');
+	const nameTXT = await name.jsonValue();
 
-	console.log(emailTXT);
+	const [el2] = await page.$x('/html/body/section[1]/div[2]/div/div/div[1]/div/img');
+	const img = await el2.getProperty('src');
+	const imgTXT = await img.jsonValue();
+
+	console.log(name,img);
+
+
 
 	browser.close();
 };
