@@ -19,19 +19,19 @@ server.listen(8000, () => {
 });
 
 
-const data = [];
+
 
 server.post('/test1', (req, res) => {
-	const data1 = req.body;
-	data.push(data1);
-	res.send(data);
-	console.log(data);
+	const username = req.body.username
+	const cock = req.body.cock
+	res.send(username);
+	console.log(username);
 
 
 });
 
 
-const data2 = data[2];
+const data2 = data[];
 
 server.get('/test2', (req,res) => {
 	console.log(data2);
