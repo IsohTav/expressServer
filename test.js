@@ -25,7 +25,17 @@ server.post('/test1', (req, res) => {
 	const data1 = req.body;
 	data.push(data1);
 	res.send(data);
-	console.log(data[2]);
+	console.log(data);
 
 
 });
+
+
+const data2 = data[2];
+
+server.get('/test2', (req,res) => {
+	console.log(data2);
+	res.JSON(data2);
+
+
+}):
