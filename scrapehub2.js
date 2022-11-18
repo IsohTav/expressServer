@@ -275,7 +275,7 @@ async function scrapeEmail(url) {
 	console.log(jsonMap);
 	const arrayMap = [nameTXT,imgTXT,emailTXT];
 
-	return arrayMap;
+	return (nameTXT,imgTXT,emailTXT);
 
 	browser.close();
 };
