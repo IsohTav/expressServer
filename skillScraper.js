@@ -261,7 +261,7 @@ async function scrapeEmail(url) {
 
 	
 
-topSkills = await page.$$('li.list-group-item', elements => elements.map(LL => {
+topSkills = await page.$$eval('li.list-group-item', elements => elements.map(LL => {
 
         //Top skills section of OLJ profile
         const skillName = LL.querySelector('dl dt').innerText;
