@@ -2,12 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const puppeteer = require('puppeteer');
 const server = express();
-
+const airtable = require('airtable');
 const PORT = 8000;
 
+//Airtable config
+Airtable.configure({
+    endpointUrl: 'https://api.airtable.com',
+    apiKey: 'key7wrwKdYtsERuwF'
+});
+const base = new Airtable({apiKey: 'key7wrwKdYtsERuwF'}).base('appWP3lnaTRbuLIG0');
+
+
+
+//express config
 server.use(express.json());
 server.use(bodyParser.text()); 
-
 server.listen(8000, () => {
 	console.log('incoming')
 
@@ -17,6 +26,13 @@ server.get('/', (req, res) => {
 	res.json({hello: "world"});
 
 });
+
+
+
+
+
+
+
 
 
 
@@ -256,15 +272,6 @@ async function scrapeEmail(url) {
 	const skill = await el.getProperty('textContent');
 	const skillTXT = await skill.jsonValue();
 
-	
-
-
-  	
-	
-
-	
-
-	
 
 	 console.log(skillTXT);
 
@@ -530,10 +537,11 @@ async function scrapeEmail(url) {
 
 
 	server.post('/scraping/jsondata', async (req,res) =>{
-		const url = req.body.profileurl;
+		const url = req.body.profileURL;
 
 		const jsondata = await scrapeSkill(url);
 		res.json(jsondata);
 
 	});
 
+	
