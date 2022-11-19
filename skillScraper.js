@@ -249,14 +249,11 @@ async function scrapeEmail(url) {
 
 	const [el] = await page.$x('/html/body/section[2]/div/div[5]/div/div/div[2]/p');
 	const skill = await el.getProperty('textContent');
-	const skilltxt = await skill.jsonValue();
+	const skillTXT = await skill.jsonValue();
 
 
 
-	
-	const arrayMap = [nameTXT,imgTXT,emailTXT,expTXT];
-
-	return (arrayMap);
+	console.log(skillTXT)
 
 	browser.close();
 };
