@@ -260,13 +260,13 @@ async function scrapeEmail(url) {
 		const skillName = LL.querySelector('dl dt').innerText;
 		const starValue = LL.querySelector('dd i').classList;
 
-		return(skillName, starValue);
+		return {skillName, starValue};
 
 }));
 
 	console.log(starLI);
 
-	console.log(skillTXT,wrkSkill1TXT,stars1TXT)
+	
 
 	browser.close();
 };
