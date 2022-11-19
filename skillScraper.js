@@ -251,9 +251,16 @@ async function scrapeEmail(url) {
 	const skill = await el.getProperty('textContent');
 	const skillTXT = await skill.jsonValue();
 
+	const [el2] = await page.$x('/html/body/section[2]/div/div[6]/div/div/div[2]/dl[1]/dd/div/ul/li[1]/dl/dt');
+	const wrkSkill1 = await el2.getProperty('textContent');
+	const wrkSkill1TXT = await wrkSkill1.jsonValue();
+
+	const [el3] = await page.$x('/html/body/section[2]/div/div[6]/div/div/div[2]/dl[1]/dd/div/ul/li[1]/dl/dd');
+	const stars1 = await el3.getProperty('class');
+	const stars1TXT = await stars1.jsonValue();
 
 
-	console.log(skillTXT)
+	console.log(skillTXT,wrkSkill1TXT,stars1TXT)
 
 	browser.close();
 };
