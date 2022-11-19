@@ -540,8 +540,8 @@ async function scrapeEmail(url) {
 
 	async function airtableUpdate(recordid,data) {
 	base('Applicant data').update([{"id": `${recordid}`, "fields": {
-		"Admin Assistant":`${data.Admin Assistant}`,
-		"Appointment Setter":`${data.Appointment Setter}`,
+		"Admin Assistant":`${data.Admin\sAssistant}`,
+		"Appointment Setter":`${data.Appointment\sSetter}`,
 
 	}
 	}]);
