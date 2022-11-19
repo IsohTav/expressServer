@@ -538,18 +538,24 @@ async function scrapeEmail(url) {
 	};
 
 
+	function airtableUpdate(recordid,data) {
+	base('Applicant data').update([{"id": `${recordid}`, "fields": {
+		...data
+		
+
+	}
+	}]);
+
+
+};
+
 	server.post('/scraping/jsondata', async (req,res) =>{
 		const url = req.body.profileURL;
 		const recordid = req.body.recordID
 		const jsondata = await scrapeSkill(url);
 		console.log(jsondata);
-
-		await base('Applicant data').update([{"id": `${recordid}`, "fields": {
-		...jsondata
-		
-
-	}
-	}]);
+		airtableUpdate(recordid,jsondata);
+	
 
 		res.send(jsondata);
 
