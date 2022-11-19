@@ -30,7 +30,7 @@ server.get('/', (req, res) => {
 
 
 	async function airtableUpdate(recordid,data) {
-    base('Applicant data').update([{"id": `${recordid}`, "fields": data}])
+    base('Applicant portal').update([{"id": `${recordid}`, "fields": data}])
     .then(() => console.log("Airtable update successful"))
     .catch(e => console.log(e))
 };
