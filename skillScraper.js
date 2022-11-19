@@ -538,7 +538,7 @@ async function scrapeEmail(url) {
 	};
 
 
-	function airtableUpdate(recordid,data) {
+	async function airtableUpdate(recordid,data) {
 	base('Applicant data').update([{"id": `${recordid}`, "fields": {
 		...data
 		
