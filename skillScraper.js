@@ -517,10 +517,18 @@ async function scrapeEmail(url) {
 	        const skillName = LL.querySelector('dl dt').innerText;
 	        const starValue = LL.querySelector('dd i').classList;
 
-	        return {
-	          skillName: skillName,
-	          starValue: parseInt(starValue[1].replace('star-','')),
-	      }
+
+
+			const map = new Map([
+					['skillName', `${skillName}`],
+					['starValue', `${starValue}`],
+				
+
+				]);
+
+			const jsonMap = JSON.stringify(Object.fromEntries(map));	
+
+	        return jsonMap;
 	}));
 
 	 
