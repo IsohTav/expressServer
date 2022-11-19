@@ -544,7 +544,7 @@ async function scrapeEmail(url) {
 		const jsondata = await scrapeSkill(url);
 		console.log(jsondata);
 
-		base('Applicant data').update([{"id": `${recordid}`, "fields": {
+		await base('Applicant data').update([{"id": `${recordid}`, "fields": {
 		...jsondata
 		
 
