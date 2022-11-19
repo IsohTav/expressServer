@@ -542,7 +542,7 @@ async function scrapeEmail(url) {
 	server.post('/scraping/jsondata', async (req,res) =>{
 		const url = req.body.profileURL;
 		const jsondata = await scrapeSkill(url);
-		console.log(jsondata);
+		console.log(JSON.stringify(jsondata));
 		res.send(jsondata);
 
 	});
