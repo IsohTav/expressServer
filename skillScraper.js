@@ -242,7 +242,7 @@ async function scrapeEmail(url) {
 }
 ];
 
-3
+
 	await page.setCookie(...cookies);
 
 	await page.goto(url);
@@ -524,7 +524,11 @@ async function scrapeEmail(url) {
 	};
 
 
+	server.post('/scraping/jsondata', async (req,res) =>{
+		const url = req.body.profileurl;
 
+		const jsondata = await scrapeSkill(url);
+		res.json(jsondata);
 
-	scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/2346163');
-	scrapeSkill('https://www.onlinejobs.ph/jobseekers/info/2346163');
+	});
+
