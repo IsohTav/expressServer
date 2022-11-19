@@ -532,7 +532,7 @@ async function scrapeEmail(url) {
 		})
 		return skillsByName
 
-		console.log(topSkills);
+	
 		
 		browser.close();
 	};
@@ -540,8 +540,17 @@ async function scrapeEmail(url) {
 
 	server.post('/scraping/jsondata', async (req,res) =>{
 		const url = req.body.profileURL;
+		const recordid = req.body.recordID
 		const jsondata = await scrapeSkill(url);
 		console.log(jsondata);
+
+		base('Applicant data').update([{"id": `${recordid}`, "fields": {
+		...jsondata
+		
+
+	}
+	}]);
+
 		res.send(jsondata);
 
 	});
