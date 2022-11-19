@@ -242,7 +242,7 @@ async function scrapeEmail(url) {
 }
 ];
 
-
+3
 	await page.setCookie(...cookies);
 
 	await page.goto(url);
@@ -267,10 +267,14 @@ async function scrapeEmail(url) {
   		skillName: skillName,
   		starValue: parseInt(starValue[1].replace('star-','')),
   	}
+
+
+  
 }));
 
+	
 	var starQuestions = await page.$$('li.list-group-item');
-	var answers = starQuestions.map(li => ({ question: li.innerText, stars: +li.querySelector('.star').className.split('-')[1]}));
+	var answers = starQuestions.map(async li => ({ question: li.innerText, stars: +(await li.$('.star')).className.split('-')[1]})
 
  
 
