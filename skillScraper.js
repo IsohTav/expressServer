@@ -257,7 +257,7 @@ async function scrapeEmail(url) {
 
 
   	//Top skills section of OLJ profile
-	topSkills = await page.$$eval.$x('/html/body/section[2]/div/div[6]/div/div/div[2]/dl[3]/dd/div/ul/li[1]', elements => elements.map(LL => {
+	topSkills = await page.$$eval('body > section.card-worker.card-worker-v3.bg-ltblue.pt-5 > div > div:nth-child(6) > div > div > div.card-body > dl:nth-child(1) > dd > div > ul > li', elements => elements.map(LL => {
   	
 		//Top skills section of OLJ profile
 		const skillName = LL.querySelector('dl dt').innerText;
@@ -269,25 +269,14 @@ async function scrapeEmail(url) {
   	}
 }));
 
-  	//Office & Admin skills section
-  	officeAdmin = await page.$$eval('body > section.card-worker.card-worker-v3.bg-ltblue.pt-5 > div > div:nth-child(6) > div > div > div.card-body > dl:nth-child(4) > dd > div > ul > li', elements2 => elements2.map(LL2 => {
+	var starQuestions = await page.$$('li.list-group-item');
+	var answers = starQuestions.map(li => ({ question: li.innerText, stars: +li.querySelector('.star').className.split('-')[1]})
 
-
-		//Office & Admin skills section
-		const skill2Name = LL2.querySelector('dl dt').innerText;
-		const star2Value = LL2.querySelector('dd i').classList;
-
-		return { 
-		skill2Name: skill2Name,
-  		star2Value: parseInt(star2Value[1].replace('star-',''))
-  
-}
-
-}));
+ 
 
 	console.log(topSkills);
 
-	console.log(officeAdmin);
+	console.log(answers);
 
 	browser.close();
 };
