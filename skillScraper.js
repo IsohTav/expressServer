@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const puppeteer = require('puppeteer');
 const server = express();
-const airtable = require('airtable');
 const PORT = 8000;
 
 
-
+var Airtable = require('airtable');
+var base = new Airtable({apiKey: 'key7wrwKdYtsERuwF'}).base('appWP3lnaTRbuLIG0');
 
 
 //express config
@@ -534,6 +534,7 @@ async function scrapeEmail(url) {
 	server.post('/scraping/jsondata', async (req,res) =>{
 		const url = req.body.profileURL;
 		const jsondata = await scrapeSkill(url);
+		console.log(jsondata);
 		res.send(jsondata);
 
 	});
