@@ -539,14 +539,9 @@ async function scrapeEmail(url) {
 
 
 	async function airtableUpdate(recordid,data) {
-	base('Applicant data').update([{"id": `${recordid}`, "fields": {
-		"Admin Assistant":`${data.Admin\sAssistant}`,
-		"Appointment Setter":`${data.Appointment\sSetter}`,
-
-	}
-	}]);
-
-	return 'done';
+    base('Applicant data').update([{"id": ${recordid}, "fields": data}])
+    .then(() => console.log("Airtable update successful"))
+    .catch(e => console.log(e))
 };
 
 	server.post('/scraping/jsondata', async (req,res) =>{
