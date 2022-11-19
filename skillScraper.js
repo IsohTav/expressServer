@@ -255,10 +255,13 @@ async function scrapeEmail(url) {
 	const wrkSkill1 = await el2.getProperty('textContent');
 	const wrkSkill1TXT = await wrkSkill1.jsonValue();
 
-	const [el3] = await page.$x('/html/body/section[2]/div/div[6]/div/div/div[2]/dl[4]/dd/div/ul/li[5]');
-	const stars1 = await el3.getProperty('li');
-	const stars1TXT = await stars1.jsonValue();
+	starLI = await page.$$eval('body > section.card-worker.card-worker-v3.bg-ltblue.pt-5 > div > div:nth-child(6) > div > div > div.card-body > dl:nth-child(1) > dd > div > ul > li', elements => elements.map(LL => {
+  
+		return LL;
 
+})
+
+	console.log(starLI);
 
 	console.log(skillTXT,wrkSkill1TXT,stars1TXT)
 
