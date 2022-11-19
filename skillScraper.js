@@ -259,7 +259,7 @@ async function scrapeEmail(url) {
   
 		return LL;
 
-})
+});
 
 	console.log(starLI);
 
