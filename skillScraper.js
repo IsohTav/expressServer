@@ -519,22 +519,17 @@ async function scrapeEmail(url) {
 
 
 
-			const map = new Map([
-					['skillName', `${skillName}`],
-					['starValue', `${starValue}`],
-				
 
-				]);
-
-			const jsonMap = JSON.stringify(Object.fromEntries(map));	
-
-	        return jsonMap;
+	        return {
+	          skillName: skillName,
+	          starValue: parseInt(starValue[1].replace('star-','')),
+	      }
 	}));
 
 	 
 
 		console.log(topSkills);
-
+		return topSkills;
 		browser.close();
 	};
 
@@ -542,7 +537,7 @@ async function scrapeEmail(url) {
 	server.post('/scraping/jsondata', async (req,res) =>{
 		const url = req.body.profileURL;
 		const jsondata = await scrapeSkill(url);
-		console.log(JSON.stringify(jsondata));
+		console.log(jsondata);
 		res.send(jsondata);
 
 	});
