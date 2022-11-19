@@ -262,7 +262,8 @@ async function scrapeEmail(url) {
 
 		return {
   skillName: skillName,
-  starValue: starValue[1]
+  starValue: parseInt(starValue[1].replace('star-',''))
+
 }
 
 }));
