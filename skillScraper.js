@@ -554,7 +554,8 @@ async function scrapeEmail(url) {
 		const recordid = req.body.recordID
 		const jsondata = await scrapeSkill(url);
 		console.log(jsondata);
-		airtableUpdate(recordid,jsondata);
+		airtableUpdate(recordid, jsondata).catch(e => console.log(e));
+
 	
 
 		res.send(jsondata);
