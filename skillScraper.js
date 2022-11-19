@@ -29,6 +29,11 @@ server.get('/', (req, res) => {
 
 
 
+	async function airtableUpdate(recordid,data) {
+    base('Applicant data').update([{"id": `${recordid}`, "fields": data}])
+    .then(() => console.log("Airtable update successful"))
+    .catch(e => console.log(e))
+};
 
 
 async function scrapeEmail(url) {
@@ -538,19 +543,16 @@ async function scrapeEmail(url) {
 	};
 
 
-	async function airtableUpdate(recordid,data) {
-    base('Applicant data').update([{"id": `${recordid}`, "fields": data}])
-    .then(() => console.log("Airtable update successful"))
-    .catch(e => console.log(e))
-};
+
 
 	server.post('/scraping/jsondata', async (req,res) =>{
 		const url = req.body.profileURL;
 		const recordid = req.body.recordID
 		const jsondata = await scrapeSkill(url);
+		const skillSummary = await scrapeEmail(url);
 		console.log(jsondata);
 		const airtablePush = await airtableUpdate(recordid, jsondata).catch(e => console.log(e));
-
+		const airtablePush2 = await airtableUpdate(recordid, {"skillSummary":`${skillSummary}`}).catch(e => console.log(e));
 	
 
 		res.send(jsondata);
