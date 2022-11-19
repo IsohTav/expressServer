@@ -273,9 +273,18 @@ async function scrapeEmail(url) {
 }));
 
 	
-	var starQuestions = await page.$$('li.list-group-item');
-	var answers = await Promise.all(starQuestions.map(async li => ({ question: li.innerText, stars: +(await li.$('.star')).className.split('-')[1]})));
 
+topSkills = await page.$$('li.list-group-item', elements => elements.map(LL => {
+
+        //Top skills section of OLJ profile
+        const skillName = LL.querySelector('dl dt').innerText;
+        const starValue = LL.querySelector('dd i').classList;
+
+        return {
+          skillName: skillName,
+          starValue: parseInt(starValue[1].replace('star-','')),
+      }
+}));
 
  
 
@@ -285,5 +294,8 @@ async function scrapeEmail(url) {
 
 	browser.close();
 };
+
+
+
 
 	scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/1457271');
