@@ -526,5 +526,5 @@ async function scrapeEmail(url) {
 
 
 
-	scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/1457271');
-	scrapeSkill('https://www.onlinejobs.ph/jobseekers/info/1457271')
+	console.log(scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/1457271'));
+	console.log(scrapeSkill('https://www.onlinejobs.ph/jobseekers/info/1457271'));
