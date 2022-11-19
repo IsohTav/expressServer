@@ -6,15 +6,12 @@ var base = new Airtable({apiKey: 'key7wrwKdYtsERuwF'}).base('appWP3lnaTRbuLIG0')
 
 
 
-const recordID = base('Applicant data').find('recwsLoW6mk3J2Irx', function(err, record) {
-    if (err) { console.error(err); return; }
-    console.log('Retrieved', record.id);
-});
 
 
 
-function airtableUpdate() {
-	base('Applicant data').update([{"id": `${recordID}`, "fields": {
+
+function airtableUpdate(recordid) {
+	base('Applicant data').update([{"id": `${recordid}`, "fields": {
 		"Applicant name": "Bob"
 
 
@@ -24,4 +21,4 @@ function airtableUpdate() {
 
 };
 
-airtableUpdate();
+airtableUpdate(recwsLoW6mk3J2Irx);
