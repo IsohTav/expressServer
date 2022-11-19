@@ -260,7 +260,10 @@ async function scrapeEmail(url) {
 		const skillName = LL.querySelector('dl dt').innerText;
 		const starValue = LL.querySelector('dd i').classList;
 
-		return {skillName, starValue};
+		return {
+  skillName: skillName,
+  starValue: starValue[1]
+}
 
 }));
 
