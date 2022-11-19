@@ -18,7 +18,7 @@ function airtableUpdate() {
     "id": "recwsLoW6mk3J2Irx",
     "fields": {
       "Applicant name": "bob",
-      }]);
+      });
    
 
 	};
