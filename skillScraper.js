@@ -264,8 +264,8 @@ async function scrapeEmail(url) {
 		const starValue = LL.querySelector('dd i').classList;
 
 		return {
-		skill2Name: skill2Name,
-  		star2Value: parseInt(star2Value[1].replace('star-',''))
+  		skillName: skillName,
+  		starValue: parseInt(starValue[1].replace('star-','')),
   	}
 }));
 
@@ -278,8 +278,8 @@ async function scrapeEmail(url) {
 		const star2Value = LL2.querySelector('dd i').classList;
 
 		return { 
-  skillName: skillName,
-  starValue: parseInt(starValue[1].replace('star-','')),
+		skill2Name: skill2Name,
+  		star2Value: parseInt(star2Value[1].replace('star-',''))
   
 }
 
