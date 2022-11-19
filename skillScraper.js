@@ -5,12 +5,7 @@ const server = express();
 const airtable = require('airtable');
 const PORT = 8000;
 
-//Airtable config
-Airtable.configure({
-    endpointUrl: 'https://api.airtable.com',
-    apiKey: 'key7wrwKdYtsERuwF'
-});
-const base = new Airtable({apiKey: 'key7wrwKdYtsERuwF'}).base('appWP3lnaTRbuLIG0');
+
 
 
 
