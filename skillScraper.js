@@ -261,7 +261,7 @@ async function scrapeEmail(url) {
 
 	
 
-	 
+	 console.log(skillTXT);
 
 		
 
@@ -518,7 +518,7 @@ async function scrapeEmail(url) {
 
 	 
 
-		
+		console.log(topSkills);
 
 		browser.close();
 	};
@@ -526,5 +526,5 @@ async function scrapeEmail(url) {
 
 
 
-	console.log(scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/1457271'));
-	console.log(scrapeSkill('https://www.onlinejobs.ph/jobseekers/info/1457271'));
+	scrapeEmail('https://www.onlinejobs.ph/jobseekers/info/1457271');
+	scrapeSkill('https://www.onlinejobs.ph/jobseekers/info/1457271');
