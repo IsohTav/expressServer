@@ -504,11 +504,11 @@ async function scrapeEmail(url) {
 	await page.goto(url);
 
 
-	topSkills = await page.$$eval('li.list-group-item', elements2 => elements.map(LL2 => {
+	topSkills = await page.$$eval('li.list-group-item', elements => elements.map(LL => {
 
 	        //Top skills section of OLJ profile
-	        const skillName = LL2.querySelector('dl dt').innerText;
-	        const starValue = LL2.querySelector('dd i').classList;
+	        const skillName = LL.querySelector('dl dt').innerText;
+	        const starValue = LL.querySelector('dd i').classList;
 
 	        return {
 	          skillName: skillName,
