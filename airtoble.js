@@ -14,7 +14,7 @@ const recordID = base('Applicant data').find('recwsLoW6mk3J2Irx', function(err, 
 
 
 function airtableUpdate() {
-	base('Applicant data').update([{"id": "recwsLoW6mk3J2Irx", "fields": {
+	base('Applicant data').update([{"id": `${recordID}`, "fields": {
 		"Applicant name": "Bob"
 
 
