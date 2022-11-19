@@ -526,10 +526,14 @@ async function scrapeEmail(url) {
 	      }
 	}));
 
-	 
+			 	const skillsByName = {}
+		topSkills.forEach(object => {
+		  skillsByName[object.skillName] = object.starValue
+		})
+		return skillsByName
 
 		console.log(topSkills);
-		return topSkills;
+		
 		browser.close();
 	};
 
