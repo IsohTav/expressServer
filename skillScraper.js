@@ -256,31 +256,31 @@ async function scrapeEmail(url) {
 	const wrkSkill1TXT = await wrkSkill1.jsonValue();
 
 
-  	//Top skills section of OLJ profile
+  	
 	
 
 	
 
-topSkills = await page.$$eval('li.list-group-item', elements => elements.map(LL => {
+	topSkills = await page.$$eval('li.list-group-item', elements => elements.map(LL => {
 
-        //Top skills section of OLJ profile
-        const skillName = LL.querySelector('dl dt').innerText;
-        const starValue = LL.querySelector('dd i').classList;
+	        //Top skills section of OLJ profile
+	        const skillName = LL.querySelector('dl dt').innerText;
+	        const starValue = LL.querySelector('dd i').classList;
 
-        return {
-          skillName: skillName,
-          starValue: parseInt(starValue[1].replace('star-','')),
-      }
-}));
+	        return {
+	          skillName: skillName,
+	          starValue: parseInt(starValue[1].replace('star-','')),
+	      }
+	}));
 
- 
+	 
 
-	console.log(topSkills);
+		console.log(topSkills);
 
-	console.log(answers);
+		console.log(skillTXT,wrkSkill1TXT);
 
-	browser.close();
-};
+		browser.close();
+	};
 
 
 
