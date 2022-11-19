@@ -255,20 +255,38 @@ async function scrapeEmail(url) {
 	const wrkSkill1 = await el2.getProperty('textContent');
 	const wrkSkill1TXT = await wrkSkill1.jsonValue();
 
-	starLI = await page.$$eval('body > section.card-worker.card-worker-v3.bg-ltblue.pt-5 > div > div:nth-child(6) > div > div > div.card-body > dl:nth-child(1) > dd > div > ul > li', elements => elements.map(LL => {
-  
+
+  	//Top skills section of OLJ profile
+	topSkills = await page.$$eval('body > section.card-worker.card-worker-v3.bg-ltblue.pt-5 > div > div:nth-child(6) > div > div > div.card-body > dl:nth-child(1) > dd > div > ul > li', elements => elements.map(LL => {
+  	//Office & Admin skills section
+  	officeAdmin = await page.$$eval('body > section.card-worker.card-worker-v3.bg-ltblue.pt-5 > div > div:nth-child(6) > div > div > div.card-body > dl:nth-child(4) > dd > div > ul > li', elements2 => elements2.map(LL2 => {
+
+
+  		//Top skills section of OLJ profile
 		const skillName = LL.querySelector('dl dt').innerText;
 		const starValue = LL.querySelector('dd i').classList;
 
-		return {
+		//Office & Admin skills section
+		const skill2Name = LL2.querySelector('dl dt').innerText;
+		const star2Value = LL2.querySelector('dd i').classList;
+
+
+
+
+
+
+		return { 
   skillName: skillName,
-  starValue: parseInt(starValue[1].replace('star-',''))
+  starValue: parseInt(starValue[1].replace('star-','')),
+  skill2Name: skill2Name,
+  star2Value: parseInt(star2Value[1].replace('star-',''))
+
 
 }
 
 }));
 
-	console.log(starLI);
+	console.log(topSkills);
 
 	
 
