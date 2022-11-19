@@ -285,9 +285,9 @@ async function scrapeEmail(url) {
 
 }));
 
-	console.log(topSkills,officeAdmin);
+	console.log(topSkills);
 
-	
+	console.log(officeAdmin);
 
 	browser.close();
 };
