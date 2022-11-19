@@ -270,7 +270,7 @@ async function scrapeEmail(url) {
 }));
 
 	var starQuestions = await page.$$('li.list-group-item');
-	var answers = starQuestions.map(li => ({ question: li.innerText, stars: +li.querySelector('.star').className.split('-')[1]})
+	var answers = starQuestions.map(li => ({ question: li.innerText, stars: +li.querySelector('.star').className.split('-')[1]}));
 
  
 
