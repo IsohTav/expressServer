@@ -8,6 +8,11 @@ const PORT = 8000;
 server.use(express.json());
 server.use(bodyParser.text()); 
 
+server.listen(8000, () => {
+	console.log('incoming')
+
+});
+
 server.get('/', (req, res) => {
 	res.json({hello: "world"});
 
