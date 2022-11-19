@@ -21,4 +21,4 @@ function airtableUpdate(recordid) {
 
 };
 
-airtableUpdate(recwsLoW6mk3J2Irx);
+airtableUpdate('recwsLoW6mk3J2Irx');
