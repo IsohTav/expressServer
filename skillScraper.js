@@ -257,7 +257,10 @@ async function scrapeEmail(url) {
 
 	starLI = await page.$$eval('body > section.card-worker.card-worker-v3.bg-ltblue.pt-5 > div > div:nth-child(6) > div > div > div.card-body > dl:nth-child(1) > dd > div > ul > li', elements => elements.map(LL => {
   
-		return LL;
+		const skillName = LL.querySelector('dl dt').innerText;
+		const starValue = LL.querySelector('dd i').classList;
+
+		return(skillName, starValue);
 
 }));
 
