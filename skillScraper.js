@@ -272,12 +272,16 @@ async function scrapeEmail(url) {
 	const skill = await el.getProperty('textContent');
 	const skillTXT = await skill.jsonValue();
 
+	const [el2] = await page.$x('/html/body/section[2]/div/div[4]/div/div/div[2]/dl[2]/dd/a[1]');
+	const IQ = await el2.getProperty('textContent');
+	const IQTXT = await IQ.jsonValue();
+
 
 	 console.log(skillTXT);
 
 		
 
-		return skillTXT;
+		return (skillTXT,IQTXT);
 
 		browser.close();
 	};
@@ -549,7 +553,7 @@ async function scrapeEmail(url) {
 		const url = req.body.profileURL;
 		const recordid = req.body.recordID
 		const jsondata = await scrapeSkill(url);
-		const skillSummary = await scrapeEmail(url);
+		const skillSummary = await scrapeEmail(url).skillTXT;
 		console.log(jsondata);
 		const airtablePush = await airtableUpdate(recordid, jsondata).catch(e => console.log(e));
 		const airtablePush2 = await airtableUpdate(recordid, {"skillSummary":`${skillSummary}`}).catch(e => console.log(e));
