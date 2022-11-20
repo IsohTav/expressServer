@@ -272,9 +272,7 @@ async function scrapeIQ(url) {
 	await page.goto(url);
 
 
-	const [el2] = await page.$x('/html/body/section[2]/div/div[4]/div/div/div[2]/dl[2]/dd/a[1]');
-	const IQ = await el2.getProperty('textContent');
-	const IQTXT = await IQ.jsonValue();
+	
 
 
 
