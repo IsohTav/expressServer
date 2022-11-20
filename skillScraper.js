@@ -277,11 +277,27 @@ async function scrapeIQ(url) {
 	const IQTXT = await IQ.jsonValue();
 
 
-	 console.log(IQTXT);
+
+	IQ = await page.$$eval('dl.jobseek-dl d-flex flex-row fs-16', elements2 => elements2.map(LL2 => {
+
+	        //Top skills section of OLJ profile
+	        const IQ2= LL2.querySelector('dd a').innerText;
+	       
+
+
+
+
+	        return {
+	          IQ2: IQ2,
+	          
+	      }
+	}));
+
+	 console.log(IQ);
 
 		
 
-		return IQTXT;
+		return IQ;
 
 		browser.close();
 	};
