@@ -280,10 +280,6 @@ async function scrapeEmail(url) {
 	const skill = await el.getProperty('textContent');
 	const skillTXT = await skill.jsonValue();
 
-	const [el2] = await page.$x('/html/body/section[2]/div/div[4]/div/div/div[2]/dl[2]/dd/a[1]');
-	const IQ = await el2.getProperty('textContent');
-	const IQTXT = await IQ.jsonValue();
-
 
 	 console.log(skillTXT);
 
