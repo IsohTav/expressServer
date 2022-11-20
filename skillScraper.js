@@ -276,7 +276,7 @@ async function scrapeIQ(url) {
 
 
 
-	IQ = await page.$$eval('dl.jobseek-dl d-flex flex-row fs-16', elements2 => elements2.map(LL2 => {
+	IQ = await page.$$eval('jobseek-dl.d-flex.flex-row.fs-16', elements2 => elements2.map(LL2 => {
 
 	        //Top skills section of OLJ profile
 	        const IQ2= LL2.querySelector('dd a').innerText;
@@ -821,11 +821,11 @@ async function scrapeEmail(url) {
 		const recordid = req.body.recordID
 		const jsondata = await scrapeSkill(url);
 		const skillSummary = await scrapeEmail(url);
-		const IQ = await scrapeIQ(url);
+		const IQ3 = await scrapeIQ(url);
 		console.log(jsondata);
 		const airtablePush = await airtableUpdate(recordid, jsondata).catch(e => console.log(e));
 		const airtablePush2 = await airtableUpdate(recordid, {"skillSummary":`${skillSummary}`}).catch(e => console.log(e));
-	 	const airtablePush3 = await airtableUpdate(recordid, {"IQ":`${IQ}`}).catch(e => console.log(e));
+	 	const airtablePush3 = await airtableUpdate(recordid, {"IQ":`${IQ3}`}).catch(e => console.log(e));
 
 
 		res.send(jsondata);
