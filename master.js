@@ -137,7 +137,7 @@
 				}
 
 		const appTDID2 = appTDID.flat();
-		console.log(appTDID2);
+		console.log(appTDID2[2]);
 
 
 		for (let i2 = 0; i2 < appTDID2.length; i2++) {
