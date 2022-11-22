@@ -23,6 +23,7 @@
 	});
 
 
+	//Creates a record in Applicant portal base. Data must be in a JSON format ("fieldName:fieldvalue,")
 	async function airtableCreate(data) {
 
 		    base('Applicant portal').create([{"fields": data}])
@@ -30,6 +31,7 @@
 		    .catch(e => console.log(e))
 			};
 
+	//Takes search form inputs and outputs a onlinejobs URL with the requested search query.
 	async function oljSearch (skills,keyword, salary, salaryUp, employmentType, trust, addDate) {
 
 		const response = await fetch("https://www.onlinejobs.ph/JobseekerSearch/getSearchUrl", {
@@ -77,7 +79,7 @@
 		const profiles = await scrapeResult(searchURL);
 
 		console.log(profiles);
-		res.send(search);
+		res.send(profiles);
 
 
 
@@ -86,8 +88,7 @@
 	});
 
 
-
-
+	//Scrapes the results of the onlinejobs search and returns a list of applicant URL's returned from the search.
 	async function scrapeResult(url) {
 		
 			const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
@@ -325,7 +326,7 @@
 
 		searchResult = await page.$$eval('a.card.card-myaccount.card-worker.card-hover-default.mb-3', elements => elements.map(LL => {
 	      
-				const queryResults = LL.querySelector('div.card-body.p-0.pb-4.p-md-0 div.row.no-gutters.top-ltblue.pt-3.pl-3.pr-3 div.col-md-9.col-8.ml-0.mt-md-3.mt-0 div.row.text-left div.col-md-5.text-right.pb-3.pb-md-0 button').getAttribute('data-item-id');
+				const queryResults = "https://www.onlinejobs.ph/jobseekers/info/" + LL.querySelector('div.card-body.p-0.pb-4.p-md-0 div.row.no-gutters.top-ltblue.pt-3.pl-3.pr-3 div.col-md-9.col-8.ml-0.mt-md-3.mt-0 div.row.text-left div.col-md-5.text-right.pb-3.pb-md-0 button').getAttribute('data-item-id');
 
 
 		        return queryResults;    
