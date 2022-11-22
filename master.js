@@ -610,7 +610,7 @@
 				email: emailTXT,
 				exp: expTXT,
 				currentJob: currentjobTXT,
-				info: information,
+				info: userInfo,
 
 			}
 
