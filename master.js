@@ -183,7 +183,7 @@
 						console.log(combinedInfo2);
 						airtableCreate(combinedInfo2);
 
-				}, 5000); 
+				}, 50); 
   				
 			}
 
