@@ -22,6 +22,14 @@
 
 	});
 
+
+	async function airtableCreate(data) {
+
+		    base('Applicant portal').create([{"fields": data}])
+		    .then(() => console.log("Airtable record created successful"))
+		    .catch(e => console.log(e))
+			};
+
 	async function oljSearch (skills,keyword, salary, salaryUp, employmentType, trust, addDate) {
 
 		const response = await fetch("https://www.onlinejobs.ph/JobseekerSearch/getSearchUrl", {
@@ -589,19 +597,7 @@
 		const currentjobTXT = await currentjob.jsonValue();	
 
 
-		userInfo = await page.$$eval('dl.row.user-review.no-gutters', elements2 => elements2.map(LL2 => {
-
-	        //Top skills section of OLJ profile
-	        const information = LL2.querySelector('dd').innerText;
-	        
-
-
-
-
-	        return {
-	          information: information,
-	      }
-		}));
+		
 
 
 			return {
@@ -610,7 +606,6 @@
 				email: emailTXT,
 				exp: expTXT,
 				currentJob: currentjobTXT,
-				info: userInfo,
 
 			}
 
@@ -885,9 +880,11 @@
 			const profileInfo = await scrapeProfileInfo(profileURL);
 			const skillInfo = await scrapeSkill(profileURL);
 
+			const combinedInfo = await profileInfo + skillInfo;
+
 			console.log(profileInfo);
 			console.log(skillInfo);
-			res.json(profileInfo);
+			res.json(combinedInfo);
 
 
 		});
