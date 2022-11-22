@@ -54,16 +54,16 @@
 										});
 
 			const threadData = await response2.json();
-			
+			const threadInfo = await threadData[1];
 
-			return threadData;
+			return threadInfo;
 
 
 	};		
 
 	server.get('/test1', async (req, res) => {
 		const test1 = await oljThread('856790');
-		console.log(test1[1]);
+		console.log(test1);
 		res.json(test1);
 
 	});
