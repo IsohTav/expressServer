@@ -155,7 +155,7 @@
 
 
 		console.log(appEmail);
-		res.json(appEmail);
+		res.send(appEmail);
 
 	});
 
