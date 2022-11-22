@@ -32,9 +32,9 @@
 			};
 
 
-	async function oljThread (jobID) {
+	async function oljThread (jobID,pageID) {
 
-		const response2 = await fetch(`https://www.onlinejobs.ph/message/getJobThreads/${jobID}/0`, {
+		const response2 = await fetch(`https://www.onlinejobs.ph/message/getJobThreads/${jobID}/${pageID}`, {
 										  "headers": {
 										    "accept": "*/*",
 										    "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
@@ -59,11 +59,46 @@
 			return threadInfo;
 
 
-	};		
+	};	
+
+	async function oljThreadMAX (jobID) {
+
+		const response3 = await fetch(`https://www.onlinejobs.ph/message/getJobThreads/${jobID}/0`, {
+										  "headers": {
+										    "accept": "*/*",
+										    "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+										    "sec-ch-ua": "\"Google Chrome\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"",
+										    "sec-ch-ua-mobile": "?0",
+										    "sec-ch-ua-platform": "\"macOS\"",
+										    "sec-fetch-dest": "empty",
+										    "sec-fetch-mode": "cors",
+										    "sec-fetch-site": "same-origin",
+										    "x-requested-with": "XMLHttpRequest",
+										    "cookie": "hblid=QtRO5dBbzhrD0T8H7n9LP0NF6reDAB0A; _fbp=fb.1.1662388881877.1919595958; olfsk=olfsk02491868843945544; _jsuid=2910189676; _okdetect=%7B%22token%22%3A%2216690253221690%22%2C%22proto%22%3A%22about%3A%22%2C%22host%22%3A%22%22%7D; _ok=5952-252-10-9497; _gid=GA1.2.542448838.1669025322; wcsid=ZAXhDLSGEWOrVgNm7n9LP0E60rDFAoa8; _okbk=cd5%3Daway%2Ccd4%3Dtrue%2Cvi5%3D0%2Cvi4%3D1669081536194%2Cvi3%3Dactive%2Cvi2%3Dfalse%2Cvi1%3Dfalse%2Ccd8%3Dchat%2Ccd6%3D0%2Ccd3%3Dfalse%2Ccd2%3D0%2Ccd1%3D0%2C; __cf_bm=P1JDkfe3UmivOOfn9_taTh4tzZPWzgz_kHPzH.Y4JVg-1669106200-0-AShIVCMk7cN5qIIXha/9ytbrOlGn2PYtmLhL59UiogG8Dxp6lSay7vrToYPkGRO9BOtkTQfZUAeiv3d3BUKDjtpdz1ELBg2BIdsqEN4gs7WCHD0A5q+ZMy+Csxrzjwt/Fj5627plSRi61bKGKPwp+T4=; _heatmaps_g2g_101221539=no; mp_52e5e0805583e8a410f1ed50d8e0c049_mixpanel=%7B%22distinct_id%22%3A%20%22184404325e1cc0-0829f9bb5a1227-19525635-16a7f0-184404325e2129f%22%2C%22%24device_id%22%3A%20%22184404325e1cc0-0829f9bb5a1227-19525635-16a7f0-184404325e2129f%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; _oklv=1669106500772%2CZAXhDLSGEWOrVgNm7n9LP0E60rDFAoa8; ci_session=0dn932g5cb3rn51gsjglk2g3p716ogjs; _ga_2ZN6B06KK8=GS1.1.1669104773.46.1.1669106538.60.0.0; _gat_UA-34259447-1=1; _ga=GA1.1.1687723548.1662388881",
+										    "Referer": "https://www.onlinejobs.ph/message",
+										    "Referrer-Policy": "strict-origin-when-cross-origin"
+										  },
+										  "body": null,
+										  "method": "GET"
+										});
+
+			const threadData = await response3.json();
+			const threadMAX = await threadData.total.length();
+
+			return threadInfo;
+
+
+	};	
 
 	server.get('/test1', async (req, res) => {
-		const test1 = await oljThread('856790');
-		console.log(test1);
+
+		const threadPage = await oljThreadMAX('857212');
+
+		
+
+
+
+		console.log(threadPage);
 		res.json(test1);
 
 	});
