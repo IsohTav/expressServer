@@ -157,7 +157,7 @@
 
 				const partnerURL = await grabAppEmail.partner;
 				const partnerURL2 = "https://www.onlinejobs.ph/jobseekers/info/" + partnerURL;
-				console.log(partnerURL2);
+				console.log(partnerURL);
 
 			
 
