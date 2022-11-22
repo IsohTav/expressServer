@@ -864,8 +864,8 @@
 
 			};
 
-			console.log(profileInfo);
-			console.log(skillInfo);
+			
+			console.log(combinedInfo);
 			airtableCreate(combinedInfo);
 			res.json(combinedInfo);
 
@@ -895,14 +895,25 @@
 		for (let i = 0; i < profiles.length; i++) {
   				console.log(profiles[i]);
 
+  				const profileInfo = await scrapeProfileInfo(profiles[i]);
+				const skillInfo = await scrapeSkill(profiles[i]);
 
+				const combinedInfo = await {
+					...profileInfo,
+					...skillInfo
+
+				};
+
+			
+			console.log(combinedInfo);
+			airtableCreate(combinedInfo);
 				
 
 			}
 		
 
 
-
+			res.send('done');
 
 
 	});
