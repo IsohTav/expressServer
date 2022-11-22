@@ -716,7 +716,7 @@
 
 		await page.setCookie(...cookies);
 
-		await page.goto(url);
+		await page.goto(url, {waitUntil: 'load', timeout: 0});
 
 
 		const [el] = await page.$x('/html/body/section[1]/div[2]/div/div/h4');
@@ -998,7 +998,7 @@
 
 	await page.setCookie(...cookies);
 
-	await page.goto(url);
+	await page.goto(url, {waitUntil: 'load', timeout: 0});
 
 
 	topSkills = await page.$$eval('li.list-group-item', elements => elements.map(LL => {
