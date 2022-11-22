@@ -144,7 +144,7 @@
 				appEmail.push(grabAppEmail);
 
 
-			,5000};
+			}, 5000);
 
 			}; 
 
