@@ -584,6 +584,24 @@
 		const exp = await el5.getProperty('textContent');
 		const expTXT = await exp.jsonValue();	
 
+		const [el6] = await page.$x('/html/body/section[1]/div[1]/div/div/div/p/span');
+		const currentjob = await el6.getProperty('textContent');
+		const currentjobTXT = await currentjob.jsonValue();	
+
+
+		userInfo = await page.$$eval('dl.jobseek-dl.fs-16', elements2 => elements2.map(LL2 => {
+
+	        //Top skills section of OLJ profile
+	        const information = LL2.querySelector('dd').innerText;
+	        
+
+
+
+
+	        return {
+	          information: information,
+	      }
+		}));
 
 
 			return {
@@ -591,6 +609,8 @@
 				imgURL: imgTXT,
 				email: emailTXT,
 				exp: expTXT,
+				currentJob: currentjobTXT,
+				info: information,
 
 			}
 
