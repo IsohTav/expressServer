@@ -63,7 +63,7 @@
 
 	server.get('/test1', async (req, res) => {
 		const test1 = await oljThread('856790');
-		console.log(test1);
+		console.log(test1[1]);
 		res.json(test1);
 
 	});
