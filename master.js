@@ -480,7 +480,13 @@
 
 	async function scrapeProfileInfo(url) {
 		
-			const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
+			const browser = await puppeteer.launch({headless: true, args:['--no-sandbox','--aggressive-cache-discard',
+																				'--disable-cache',
+																				'--disable-application-cache',
+																				'--disable-offline-load-stale-cache',
+																				'--disable-gpu-shader-disk-cache',
+																				'--media-cache-size=0',
+																				'--disk-cache-size=0']});
 			const page = await browser.newPage();
 
 			var cookies = [
@@ -758,7 +764,13 @@
 
 		async function scrapeSkill(url) {
 	
-	const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
+	const browser = await puppeteer.launch({headless: true, args:['--no-sandbox','--aggressive-cache-discard',
+																		'--disable-cache',
+																		'--disable-application-cache',
+																		'--disable-offline-load-stale-cache',
+																		'--disable-gpu-shader-disk-cache',
+																		'--media-cache-size=0',
+																		'--disk-cache-size=0']});
 	const page = await browser.newPage();
 
 	var cookies = [
