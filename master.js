@@ -95,7 +95,7 @@
 	server.post('/test1', async (req, res) => {
 
 		const jobTD = req.post.jobTD;
-		const threadPage1 = await oljThreadMAX('857212');
+		const threadPage1 = await oljThreadMAX(jobTD);
 		const tp2 = await threadPage1.length;
 		const tp3 = await Math.round(tp2 / 10);
 
