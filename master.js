@@ -128,7 +128,7 @@
 		const tp3 = await Math.round(tp2 / 10);
 
 		const appTDID = [];
-		const appEmail =[];
+		const appEmail = [];
 
 
 		for (let i = 0; i < tp3; i++) {
@@ -142,14 +142,14 @@
 
 		for (let i2 = 0; i2 < await appTDID2.length; i2++) {
 		  
-			setTimeout(async function(){
+			
 
 				const oljI = await appTDID2[i2];
 				const grabAppEmail = await oljEmailGrab(oljI);
 				appEmail.push(grabAppEmail);
 
 
-			}, 5000);
+			
 
 			}; 
 
