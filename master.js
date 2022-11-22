@@ -315,19 +315,299 @@
 		await page.goto(url);
 
 
-	searchResult = await page.$$eval('a.card.card-myaccount.card-worker.card-hover-default.mb-3', elements => elements.map(LL => {
-      
-			const queryResults = LL.querySelector('div.card-body.p-0.pb-4.p-md-0 div.row.no-gutters.top-ltblue.pt-3.pl-3.pr-3 div.col-md-9.col-8.ml-0.mt-md-3.mt-0 div.row.text-left div.col-md-5.text-right.pb-3.pb-md-0 button').getAttribute('data-item-id');
-
-
-	        return queryResults;    
+		searchResult = await page.$$eval('a.card.card-myaccount.card-worker.card-hover-default.mb-3', elements => elements.map(LL => {
 	      
-	}));
-	
-		return searchResult;
-		browser.close();
-	};
+				const queryResults = LL.querySelector('div.card-body.p-0.pb-4.p-md-0 div.row.no-gutters.top-ltblue.pt-3.pl-3.pr-3 div.col-md-9.col-8.ml-0.mt-md-3.mt-0 div.row.text-left div.col-md-5.text-right.pb-3.pb-md-0 button').getAttribute('data-item-id');
 
+
+		        return queryResults;    
+		      
+		}));
+		
+			return searchResult;
+			browser.close();
+		};
+
+
+
+	async function scrapeProfile(url) {
+		
+			const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
+			const page = await browser.newPage();
+
+			var cookies = [
+								
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1669093235.02989,
+							    "hostOnly": false,
+							    "httpOnly": true,
+							    "name": "__cf_bm",
+							    "path": "/",
+							    "sameSite": "no_restriction",
+							    "secure": true,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "tSISrAZw7NECMDbx8I5JIH1Ren3N.ya0KeZri1DVXSw-1669091435-0-Acd0cp0Z25SMj4MxHSep3EoC+FIBlSpoHVTAvFQD6feHClAP8+kGU31SJurs5oy5SjVsoXk/MbQka7SCTEtBm/hwRE87gLPxV1pODYX2yKPljkCUZR9a3MeW7UHGGp+D/ygw9hEL6ssQezcPOHjuexo=",
+							    "id": 1
+							},
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1676867754,
+							    "hostOnly": false,
+							    "httpOnly": false,
+							    "name": "_fbp",
+							    "path": "/",
+							    "sameSite": "lax",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "fb.1.1662388881877.1919595958",
+							    "id": 2
+							},
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1703651754.269561,
+							    "hostOnly": false,
+							    "httpOnly": false,
+							    "name": "_ga",
+							    "path": "/",
+							    "sameSite": "unspecified",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "GA1.1.1687723548.1662388881",
+							    "id": 3
+							},
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1703651843.890184,
+							    "hostOnly": false,
+							    "httpOnly": false,
+							    "name": "_ga_2ZN6B06KK8",
+							    "path": "/",
+							    "sameSite": "unspecified",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "GS1.1.1669091433.44.1.1669091843.60.0.0",
+							    "id": 4
+							},
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1669178154,
+							    "hostOnly": false,
+							    "httpOnly": false,
+							    "name": "_gid",
+							    "path": "/",
+							    "sameSite": "unspecified",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "GA1.2.542448838.1669025322",
+							    "id": 5
+							},
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1669092354.667809,
+							    "hostOnly": false,
+							    "httpOnly": false,
+							    "name": "_heatmaps_g2g_101221539",
+							    "path": "/",
+							    "sameSite": "unspecified",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "no",
+							    "id": 6
+							},
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1700627754.667099,
+							    "hostOnly": false,
+							    "httpOnly": false,
+							    "name": "_jsuid",
+							    "path": "/",
+							    "sameSite": "unspecified",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "2910189676",
+							    "id": 7
+							},
+							{
+							    "domain": ".onlinejobs.ph",
+							    "expirationDate": 1700627754,
+							    "hostOnly": false,
+							    "httpOnly": false,
+							    "name": "mp_52e5e0805583e8a410f1ed50d8e0c049_mixpanel",
+							    "path": "/",
+							    "sameSite": "unspecified",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "%7B%22distinct_id%22%3A%20%22184404325e1cc0-0829f9bb5a1227-19525635-16a7f0-184404325e2129f%22%2C%22%24device_id%22%3A%20%22184404325e1cc0-0829f9bb5a1227-19525635-16a7f0-184404325e2129f%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D",
+							    "id": 8
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "hostOnly": true,
+							    "httpOnly": false,
+							    "name": "_ok",
+							    "path": "/",
+							    "sameSite": "strict",
+							    "secure": false,
+							    "session": true,
+							    "storeId": "0",
+							    "value": "5952-252-10-9497",
+							    "id": 9
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "hostOnly": true,
+							    "httpOnly": false,
+							    "name": "_okbk",
+							    "path": "/",
+							    "sameSite": "strict",
+							    "secure": false,
+							    "session": true,
+							    "storeId": "0",
+							    "value": "cd4%3Dtrue%2Ccd5%3Davailable%2Cvi5%3D0%2Cvi4%3D1669081536194%2Cvi3%3Dactive%2Cvi2%3Dfalse%2Cvi1%3Dfalse%2Ccd8%3Dchat%2Ccd6%3D0%2Ccd3%3Dfalse%2Ccd2%3D0%2Ccd1%3D0%2C",
+							    "id": 10
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "hostOnly": true,
+							    "httpOnly": false,
+							    "name": "_okdetect",
+							    "path": "/",
+							    "sameSite": "strict",
+							    "secure": false,
+							    "session": true,
+							    "storeId": "0",
+							    "value": "%7B%22token%22%3A%2216690253221690%22%2C%22proto%22%3A%22about%3A%22%2C%22host%22%3A%22%22%7D",
+							    "id": 11
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "hostOnly": true,
+							    "httpOnly": false,
+							    "name": "_oklv",
+							    "path": "/",
+							    "sameSite": "strict",
+							    "secure": false,
+							    "session": true,
+							    "storeId": "0",
+							    "value": "1669092239018%2CZAXhDLSGEWOrVgNm7n9LP0E60rDFAoa8",
+							    "id": 12
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "expirationDate": 1671770154.141783,
+							    "hostOnly": true,
+							    "httpOnly": true,
+							    "name": "ci_session",
+							    "path": "/",
+							    "sameSite": "unspecified",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "q11i0h09nc9v038cuv3g4vrjk4765ovh",
+							    "id": 13
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "expirationDate": 1703651754.880999,
+							    "hostOnly": true,
+							    "httpOnly": false,
+							    "name": "hblid",
+							    "path": "/",
+							    "sameSite": "strict",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "QtRO5dBbzhrD0T8H7n9LP0NF6reDAB0A",
+							    "id": 14
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "expirationDate": 1703651754.677317,
+							    "hostOnly": true,
+							    "httpOnly": false,
+							    "name": "olfsk",
+							    "path": "/",
+							    "sameSite": "strict",
+							    "secure": false,
+							    "session": false,
+							    "storeId": "0",
+							    "value": "olfsk02491868843945544",
+							    "id": 15
+							},
+							{
+							    "domain": "www.onlinejobs.ph",
+							    "hostOnly": true,
+							    "httpOnly": false,
+							    "name": "wcsid",
+							    "path": "/",
+							    "sameSite": "strict",
+							    "secure": false,
+							    "session": true,
+							    "storeId": "0",
+							    "value": "ZAXhDLSGEWOrVgNm7n9LP0E60rDFAoa8",
+							    "id": 16
+							}
+
+							];
+
+
+		await page.setCookie(...cookies);
+
+		await page.goto(url);
+
+
+		const [el] = await page.$x('/html/body/section[1]/div[2]/div/div/h4');
+		const name = await el.getProperty('textContent');
+		const nameTXT = await name.jsonValue();
+
+		const [el2] = await page.$x('/html/body/section[1]/div[2]/div/div/div[1]/div/img');
+		const img = await el2.getProperty('src');
+		const imgTXT = await img.jsonValue();
+
+
+		const [el3] = await page.$x('/html/body/section[1]/div[2]/div/div/div[3]/form/input[2]');
+		const email = await el3.getProperty('value');
+		const emailTXT = await email.jsonValue();
+
+		
+
+		const [el5] = await page.$x('/html/body/section[2]/div/div[2]/div/dl/dd/span');
+		const exp = await el5.getProperty('textContent');
+		const expTXT = await exp.jsonValue();	
+
+
+
+			return {
+				name: name,
+				imgURL: img,
+				email: email,
+				exp: exp,
+
+			}
+
+			browser.close();
+		};
+
+
+		server.post('/scraping/profile', async (req, res)=> {
+			const profileURL = req.body.profileURL;
+
+			const profileInfo = await scrapeProfile(profileURL);
+
+			console.log(profileInfo);
+			res.json(profileInfo);
+
+
+		});
 
 
 
