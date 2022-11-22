@@ -137,10 +137,10 @@
 				}
 
 		const appTDID2 = appTDID.flat();		
-		for (let i = 0; i < appTDID2.length; i++) {
+		for (let i2 = 0; i2 < appTDID2.length; i2++) {
 		  
 			setTimeout(async function(){
-				const grabAppEmail = await oljEmailGrab(appTDID2[i])
+				const grabAppEmail = await oljEmailGrab(appTDID2[i2])
 				appEmail.push(grabAppEmail);
 
 
