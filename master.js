@@ -138,7 +138,7 @@
 		const appEmail = [];
 		const appURL = [];
 
-		for (let i = 19; i < tp3; i++) {
+		for (let i = 0; i < tp3; i++) {
 				  const appThreadID = await oljThread(jobTD,i);
 				  appTDID.push(appThreadID);
 				}
