@@ -51,13 +51,13 @@
 
 
 	server.post('/scraping/search', async (req, res) => {
-		const skills = body.req.skills;
-		const keyword = body.req.keyword;
-		const salaryBottom = body.req.SalaryBottom;
-		const salaryUp = body.req.salaryUp;
-		const employmentType = body.req.employmentType;
-		const trust = body.req.trust;
-		const addDate = body.req.addDate;
+		const skills = req.body.skills;
+		const keyword = req.body.keyword;
+		const salaryBottom = req.body.SalaryBottom;
+		const salaryUp = req.body.salaryUp;
+		const employmentType = req.body.employmentType;
+		const trust = req.body.trust;
+		const addDate = req.body.addDate;
 
 		const search = await oljSearch(skills,keyword,salaryBottom, salaryUp, employmentType, trust, addDate);
 
