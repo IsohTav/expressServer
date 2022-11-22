@@ -53,7 +53,7 @@
 										  "method": "GET"
 										});
 
-			const threadData = await response2.data
+			const threadData = await response2.json();
 			
 
 			return threadData;
