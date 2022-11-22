@@ -173,8 +173,8 @@
 					const skillInfo2 = await scrapeSkill(appURL[i3]);
 
 					const combinedInfo2 = await {
-						...profileInfo,
-						...skillInfo,
+						...profileInfo2,
+						...skillInfo2,
 						"actualEmail": appEmail[i3],
 
 						};
