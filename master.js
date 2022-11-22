@@ -94,11 +94,12 @@
 
 		const threadPage = await oljThreadMAX('857212');
 
+		const test1 = await threadPage.length;
 		
 
 
 
-		console.log(threadPage);
+		console.log(test1);
 		res.json(test1);
 
 	});
