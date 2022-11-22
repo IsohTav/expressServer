@@ -601,10 +601,10 @@
 
 
 			return {
-				name: nameTXT,
+				Name: nameTXT,
 				onlineJobsapplicantPhoto: {url:imgTXT},
-				email: emailTXT,
-				exp: expTXT,
+				Applicantemail: emailTXT,
+				Experienceoverview: expTXT,
 				currentJob: currentjobTXT,
 
 			}
@@ -888,6 +888,7 @@
 
 			console.log(profileInfo);
 			console.log(skillInfo);
+			airtableCreate(combinedInfo);
 			res.json(combinedInfo);
 
 
