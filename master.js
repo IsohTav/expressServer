@@ -115,7 +115,7 @@
 		
 		const emailThreadID = await emailThread.partner_email;
 		const partnerID = await emailThread.partner;
-		console.log(partnerID);
+		
 
 		return {
 			emailThreadID: emailThreadID,
@@ -136,9 +136,9 @@
 
 		const appTDID = [];
 		const appEmail = [];
+		const appURL = [];
 
-
-		for (let i = 18; i < tp3; i++) {
+		for (let i = 19; i < tp3; i++) {
 				  const appThreadID = await oljThread(jobTD,i);
 				  appTDID.push(appThreadID);
 				}
@@ -157,11 +157,35 @@
 
 				const partnerURL = await grabAppEmail.partnerID;
 				const partnerURL2 = "https://www.onlinejobs.ph/jobseekers/info/" + partnerURL;
-				console.log(partnerURL2);
+				appURL.push(partnerURL2);
 
 			
 
 			}; 
+
+
+			for (let i3 = 0; i3 < appURL.length; i++) {
+
+				setTimeout(async function(){
+				
+					console.log(appURL[i3]);
+  					const profileInfo2 = await scrapeProfileInfo(appURL[i3]);
+					const skillInfo2 = await scrapeSkill(appURL[i3]);
+
+					const combinedInfo2 = await {
+						...profileInfo,
+						...skillInfo,
+						"actualEmail": appEmail[i3],
+
+						};
+
+			
+						console.log(combinedInfo2);
+						airtableCreate(combinedInfo2);
+
+				}, 5000); 
+  				
+			}
 
 
 		console.log(appEmail);
