@@ -113,7 +113,7 @@
 
 		const emailThread = await response4.json();
 		const emailThreadID = await emailThread.data.map(e2 => e2.partner_email);
-
+		console.log(emailThreadID);
 		return emailThreadID;
 
 	};
@@ -131,7 +131,7 @@
 		const appEmail = [];
 
 
-		for (let i = 0; i < tp3; i++) {
+		for (let i = 18; i < tp3; i++) {
 				  const appThreadID = await oljThread(jobTD,i);
 				  appTDID.push(appThreadID);
 				}
@@ -146,7 +146,7 @@
 
 				const oljI = await appTDID2[i2];
 				const grabAppEmail = await oljEmailGrab(oljI);
-				appEmail.push(grabAppEmail);
+				console.log(grabAppEmail);
 
 
 			
