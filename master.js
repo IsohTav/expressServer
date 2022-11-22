@@ -587,10 +587,10 @@
 
 
 			return {
-				name: name,
-				imgURL: img,
-				email: email,
-				exp: exp,
+				name: nameTXT,
+				imgURL: imgTXT,
+				email: emailTXT,
+				exp: expTXT,
 
 			}
 
