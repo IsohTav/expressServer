@@ -54,7 +54,7 @@
 										});
 
 			const threadData = await response2.data
-			const threadID = await threadData.thread_id
+			
 
 			return threadData;
 
