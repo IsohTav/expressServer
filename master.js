@@ -40,7 +40,7 @@
 	    "Referer": "https://www.onlinejobs.ph/employers/skillsearch/developer/5e8edd851d2fdfbd7415232c67367cc35422387/0",
 	    "Referrer-Policy": "strict-origin-when-cross-origin"
 	  },
-	  "body": `csrf-token=f35ee963e3692774e13b9dc1eb49809c&skills=${skills}location=&keyword=${keyword}&salary=${salaryBottom}&salaryup=${salaryUp}&employmenttype=${employmentType}&trust=${trust}&addate=${adddDte}&op=Search`,
+	  "body": `csrf-token=f35ee963e3692774e13b9dc1eb49809c&skills=${skills}location=&keyword=${keyword}&salary=${salaryBottom}&salaryup=${salaryUp}&employmenttype=${employmentType}&trust=${trust}&addate=${addDate}&op=Search`,
 	  "method": "POST"
 		});
 
