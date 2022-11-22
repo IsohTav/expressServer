@@ -114,7 +114,6 @@
 		const emailThread = await response4.json();
 		
 		const emailThreadID = await emailThread.partner_email;
-		console.log(emailThreadID);
 		return emailThreadID;
 
 	};
@@ -138,7 +137,7 @@
 				}
 
 		const appTDID2 = appTDID.flat();
-		console.log(appTDID2[2]);
+		
 
 
 		for (let i2 = 0; i2 < await appTDID2.length; i2++) {
