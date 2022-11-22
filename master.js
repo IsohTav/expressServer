@@ -115,6 +115,7 @@
 		
 		const emailThreadID = await emailThread.partner_email;
 		const partnerID = await emailThread.partner;
+		console.log(partnerID);
 
 		return {
 			emailThreadID: emailThreadID,
