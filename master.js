@@ -44,7 +44,7 @@
 	  "method": "POST"
 		});
 
-		const Searchurl = wait response.text();
+		const Searchurl = await response.text();
 		return Searchurl;
 
 	};
