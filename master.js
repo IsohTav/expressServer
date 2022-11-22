@@ -24,7 +24,7 @@
 
 	async function oljSearch (skills,keyword,salaryBottom, salaryUp, employmentType, trust, addDate) {
 
-		const response = fetch("https://www.onlinejobs.ph/JobseekerSearch/getSearchUrl", {
+		const response = await fetch("https://www.onlinejobs.ph/JobseekerSearch/getSearchUrl", {
 	  	"headers": {
 	    "accept": "*/*",
 	    "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
