@@ -93,14 +93,14 @@
 	server.get('/test1', async (req, res) => {
 
 		const threadPage = await oljThreadMAX('857212');
-
 		const test1 = await threadPage.length;
+		const test2 = await math.round(test1 / 10);
 		
 
 
 
-		console.log(test1);
-		res.json(test1);
+		console.log(test2);
+		res.json(test2);
 
 	});
 
