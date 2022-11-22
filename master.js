@@ -88,7 +88,35 @@
 			return threadMAX;
 
 
-	};	
+	};	  
+
+	async function oljEmailGrab (appEmailID) {
+
+		const response4 = await fetch(`https://www.onlinejobs.ph/message/getThreadMessages/${appEmailID}?page=0&pre=undefined`, {
+			  "headers": { 
+			    "accept": "*/*",
+			    "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+			    "sec-ch-ua": "\"Google Chrome\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"",
+			    "sec-ch-ua-mobile": "?0",
+			    "sec-ch-ua-platform": "\"macOS\"",
+			    "sec-fetch-dest": "empty",
+			    "sec-fetch-mode": "cors",
+			    "sec-fetch-site": "same-origin",
+			    "x-requested-with": "XMLHttpRequest",
+			    "cookie": "hblid=QtRO5dBbzhrD0T8H7n9LP0NF6reDAB0A; _fbp=fb.1.1662388881877.1919595958; olfsk=olfsk02491868843945544; _jsuid=2910189676; _okdetect=%7B%22token%22%3A%2216690253221690%22%2C%22proto%22%3A%22about%3A%22%2C%22host%22%3A%22%22%7D; _ok=5952-252-10-9497; _gid=GA1.2.542448838.1669025322; wcsid=26KWesH1EyPtIauM7n9LP0Ear8BFADbA; _okbk=cd5%3Davailable%2Cvi3%3Dinactive%2Ccd4%3Dtrue%2Cvi5%3D0%2Cvi4%3D1669107051915%2Cvi2%3Dfalse%2Cvi1%3Dfalse%2Ccd8%3Dchat%2Ccd6%3D0%2Ccd3%3Dfalse%2Ccd2%3D0%2Ccd1%3D0%2C; ci_session=v9h6r94h3reb7cq8e76b39cb51s45hgn; _ga_2ZN6B06KK8=GS1.1.1669111898.48.1.1669111932.26.0.0; _ga=GA1.1.1687723548.1662388881; mp_52e5e0805583e8a410f1ed50d8e0c049_mixpanel=%7B%22distinct_id%22%3A%20%22184404325e1cc0-0829f9bb5a1227-19525635-16a7f0-184404325e2129f%22%2C%22%24device_id%22%3A%20%22184404325e1cc0-0829f9bb5a1227-19525635-16a7f0-184404325e2129f%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; _oklv=1669115273144%2C26KWesH1EyPtIauM7n9LP0Ear8BFADbA",
+			    "Referer": "https://www.onlinejobs.ph/message",
+			    "Referrer-Policy": "strict-origin-when-cross-origin"
+			  },
+			  "body": null,
+			  "method": "GET"
+			});
+
+		const emailThread = await response4.json();
+		const emailThreadID = await emailThread.data.map(e2 => e2.partner_email);
+
+		return emailThreadID;
+
+	};
 
 	
 
@@ -100,16 +128,29 @@
 		const tp3 = await Math.round(tp2 / 10);
 
 		const appTDID = [];
-		
+		const appEmail =[];
+
+
 		for (let i = 0; i < tp3; i++) {
 				  const appThreadID = await oljThread(jobTD,i);
 				  appTDID.push(appThreadID);
 				}
 
 		const appTDID2 = appTDID.flat();		
+		for (let i = 0; i < appTDID2.length; i++) {
+		  
+			setTimeout(async function(){
+				const grabAppEmail = await oljEmailGrab(appTDID2[i])
+				appEmail.push(grabAppEmail);
 
-		console.log(appTDID2);
-		res.json(appTDID2);
+
+			,5000};
+
+			}; 
+
+
+		console.log(appEmail);
+		res.json(appEmail);
 
 	});
 
