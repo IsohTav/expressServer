@@ -82,7 +82,7 @@
 										  "method": "GET"
 										});
 
-			const threadData = await response3.json();
+			const threadData = await response3;
 			const threadMAX = await threadData.total;
 
 			return threadMAX;
