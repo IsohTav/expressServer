@@ -94,7 +94,7 @@
 
 		const threadPage = await oljThreadMAX('857212');
 		const test1 = await threadPage.length;
-		const test2 = await math.round(test1 / 10);
+		const test2 = await Math.round(test1 / 10);
 		
 
 
