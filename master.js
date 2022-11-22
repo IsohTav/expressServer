@@ -22,7 +22,7 @@
 
 	});
 
-	async function oljSearch (skills,keyword,salaryBottom, salaryUp, employmentType, trust, addDate) {
+	async function oljSearch (skills,keyword, salary, salaryUp, employmentType, trust, addDate) {
 
 		const response = await fetch("https://www.onlinejobs.ph/JobseekerSearch/getSearchUrl", {
 	  	"headers": {
@@ -40,7 +40,7 @@
 	    "Referer": "https://www.onlinejobs.ph/employers/skillsearch/developer/5e8edd851d2fdfbd7415232c67367cc35422387/0",
 	    "Referrer-Policy": "strict-origin-when-cross-origin"
 	  },
-	  "body": `csrf-token=f35ee963e3692774e13b9dc1eb49809c&skills=${skills}location=&keyword=${keyword}&salary=${salaryBottom}&salaryup=${salaryUp}&employmenttype=${employmentType}&trust=${trust}&addate=${addDate}&op=Search`,
+	  "body": `csrf-token=f35ee963e3692774e13b9dc1eb49809c&skills=${skills}location=&keyword=${keyword}&salary=${salary}&salaryup=${salaryUp}&employmenttype=${employmentType}&trust=${trust}&addate=${addDate}&op=Search`,
 	  "method": "POST"
 		});
 
@@ -53,13 +53,13 @@
 	server.post('/scraping/search', async (req, res) => {
 		const skills = req.body.skills;
 		const keyword = req.body.keyword;
-		const salaryBottom = req.body.SalaryBottom;
+		const salaryBottom = req.body.salary;
 		const salaryUp = req.body.salaryUp;
 		const employmentType = req.body.employmentType;
 		const trust = req.body.trust;
 		const addDate = req.body.addDate;
 
-		const search = await oljSearch(skills,keyword,salaryBottom, salaryUp, employmentType, trust, addDate);
+		const search = await oljSearch(skills,keyword,salary, salaryUp, employmentType, trust, addDate);
 
 		console.log(search);
 		res.send(search);
