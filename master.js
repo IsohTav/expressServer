@@ -589,10 +589,10 @@
 		const currentjobTXT = await currentjob.jsonValue();	
 
 
-		userInfo = await page.$$eval('dl.jobseek-dl.fs-16', elements2 => elements2.map(LL2 => {
+		userInfo = await page.$$eval('dl.row.user-review.no-gutters', elements2 => elements2.map(LL2 => {
 
 	        //Top skills section of OLJ profile
-	        const information = LL2.querySelectorAll('dd').innerText;
+	        const information = LL2.querySelector('dd').innerText;
 	        
 
 
