@@ -83,9 +83,9 @@
 										});
 
 			const threadData = await response3.json();
-			const threadMAX = await threadData.total.length();
+			const threadMAX = await threadData.total;
 
-			return threadInfo;
+			return threadMAX;
 
 
 	};	
