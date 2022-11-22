@@ -146,7 +146,7 @@
 
 				const oljI = await appTDID2[i2];
 				const grabAppEmail = await oljEmailGrab(oljI);
-				console.log(grabAppEmail);
+				appEmail.push(grabAppEmail);
 
 
 			
