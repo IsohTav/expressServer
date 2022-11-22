@@ -114,13 +114,19 @@
 		const emailThread = await response4.json();
 		
 		const emailThreadID = await emailThread.partner_email;
-		return emailThreadID;
+		const partnerID = await emailThread.partner;
+
+		return {
+			emailThreadID: emailThreadID,
+			partnerID: partnerID,
+
+		};
 
 	};
 
 	
 
-	server.post('/test1', async (req, res) => {
+	server.post('/request/emailsByJob', async (req, res) => {
 
 		const jobTD = req.body.jobTD;
 		const threadPage1 = await oljThreadMAX(jobTD);
@@ -146,8 +152,11 @@
 
 				const oljI = await appTDID2[i2];
 				const grabAppEmail = await oljEmailGrab(oljI);
-				appEmail.push(grabAppEmail);
+				appEmail.push(grabAppEmail.emailThreadID);
 
+				const partnerURL = await "https://www.onlinejobs.ph/jobseekers/info/" + grabAppEmail.partner;
+
+				console.log(partnerURL);
 
 			
 
