@@ -61,7 +61,7 @@
 
 		const search = await oljSearch(skills,keyword,salaryBottom, salaryUp, employmentType, trust, addDate);
 
-		console.log(searc);
+		console.log(search);
 		res.send(search);
 
 
