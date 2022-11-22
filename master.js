@@ -60,32 +60,6 @@
 	};
 
 
-	server.post('/scraping/search', async (req, res) => {
-		const skills = req.body.skills;
-		const keyword = req.body.keyword;
-		const salary = req.body.salary;
-		const salaryUp = req.body.salaryUp;
-		const employmentType = req.body.employmentType;
-		const trust = req.body.trust;
-		const addDate = req.body.addDate;
-
-		const search = await oljSearch(skills,keyword,salary, salaryUp, employmentType, trust, addDate);
-
-		console.log(search);
-
-
-		const searchURL = "https://www.onlinejobs.ph" + search;
-
-		const profiles = await scrapeResult(searchURL);
-
-		console.log(profiles);
-		res.send(profiles);
-
-
-
-
-
-	});
 
 
 	//Scrapes the results of the onlinejobs search and returns a list of applicant URL's returned from the search.
@@ -898,5 +872,39 @@
 
 		});
 
+		server.post('/scraping/search', async (req, res) => {
+		const skills = req.body.skills;
+		const keyword = req.body.keyword;
+		const salary = req.body.salary;
+		const salaryUp = req.body.salaryUp;
+		const employmentType = req.body.employmentType;
+		const trust = req.body.trust;
+		const addDate = req.body.addDate;
+
+		const search = await oljSearch(skills,keyword,salary, salaryUp, employmentType, trust, addDate);
+
+		console.log(search);
+
+
+		const searchURL = "https://www.onlinejobs.ph" + search;
+
+		const profiles = await scrapeResult(searchURL);
+
+		
+
+		for (let i = 0; i < profiles.length; i++) {
+  				console.log(profiles[i]);
+
+
+				
+
+			}
+		
+
+
+
+
+
+	});
 
 
