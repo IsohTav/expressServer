@@ -90,19 +90,25 @@
 
 	};	
 
-	server.get('/test1', async (req, res) => {
+	const
 
+	server.post('/test1', async (req, res) => {
+
+		const jobTD = req.post.jobTD;
 		const threadPage1 = await oljThreadMAX('857212');
 		const tp2 = await threadPage1.length;
 		const tp3 = await Math.round(tp2 / 10);
+
+		const appTDID = [];
 		
 		for (let i = 0; i < tp3; i++) {
-				  console.log(i);
+				  const appThreadID = await oljThread(jobTD,i);
+				  appTDID.push(appThreadID);
 				}
 
 
-		console.log(test2);
-		res.json(test2);
+		console.log(appTDID);
+		res.json(appTDID);
 
 	});
 
