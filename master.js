@@ -155,9 +155,9 @@
 				const grabAppEmail = await oljEmailGrab(oljI);
 				appEmail.push(grabAppEmail.emailThreadID);
 
-				const partnerURL = await "https://www.onlinejobs.ph/jobseekers/info/" + grabAppEmail.partner;
-
-				console.log(partnerURL);
+				const partnerURL = await grabAppEmail.partner;
+				const partnerURL2 = "https://www.onlinejobs.ph/jobseekers/info/" + partnerURL;
+				console.log(partnerURL2);
 
 			
 
