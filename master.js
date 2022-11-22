@@ -136,7 +136,10 @@
 				  appTDID.push(appThreadID);
 				}
 
-		const appTDID2 = appTDID.flat();		
+		const appTDID2 = appTDID.flat();
+		console.log(appTDID2);
+
+
 		for (let i2 = 0; i2 < appTDID2.length; i2++) {
 		  
 			setTimeout(async function(){
