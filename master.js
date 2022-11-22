@@ -54,7 +54,7 @@
 										});
 
 			const threadData = await response2.json();
-			const threadInfo = await threadData[1];
+			const threadInfo = await threadData.data;
 
 			return threadInfo;
 
