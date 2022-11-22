@@ -592,9 +592,7 @@
 		const exp = await el5.getProperty('textContent');
 		const expTXT = await exp.jsonValue();	
 
-		const [el6] = await page.$x('/html/body/section[1]/div[1]/div/div/div/p/span');
-		const currentjob = await el6.getProperty('textContent');
-		const currentjobTXT = await currentjob.jsonValue();	
+		
 
 
 		
@@ -605,7 +603,7 @@
 				onlineJobsapplicantPhoto: [{"url":`${imgTXT}`}],
 				Applicantemail: emailTXT,
 				Experienceoverview: expTXT,
-				currentJob: currentjobTXT,
+				
 
 			}
 
