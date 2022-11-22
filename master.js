@@ -53,7 +53,7 @@
 	server.post('/scraping/search', async (req, res) => {
 		const skills = req.body.skills;
 		const keyword = req.body.keyword;
-		const salaryBottom = req.body.salary;
+		const salary = req.body.salary;
 		const salaryUp = req.body.salaryUp;
 		const employmentType = req.body.employmentType;
 		const trust = req.body.trust;
