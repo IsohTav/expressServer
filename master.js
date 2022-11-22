@@ -112,6 +112,7 @@
 			});
 
 		const emailThread = await response4.json();
+		console.log(emailThread);
 		const emailThreadID = await emailThread.data.partner_email;
 		console.log(emailThreadID);
 		return emailThreadID;
