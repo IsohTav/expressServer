@@ -602,7 +602,7 @@
 
 			return {
 				name: nameTXT,
-				onlineJobs applicantPhoto: {url:imgTXT},
+				onlineJobsapplicantPhoto: {url:imgTXT},
 				email: emailTXT,
 				exp: expTXT,
 				currentJob: currentjobTXT,
