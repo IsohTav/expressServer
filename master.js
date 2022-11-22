@@ -164,7 +164,7 @@
 			}; 
 
 
-			for (let i3 = 0; i3 < appURL.length; i++) {
+			for (let i3 = 0; i3 < appURL.length; i3++) {
 
 				setTimeout(async function(){
 				
