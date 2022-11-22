@@ -315,10 +315,12 @@
 		await page.goto(url);
 
 
-	searchResult = await page.$$eval('a.card card-myaccount card-worker card-hover-default mb-3', elements => elements.map(LL => {
+	searchResult = await page.$$eval('a.card.card-myaccount.card-worker.card-hover-default.mb-3', elements => elements.map(LL => {
       
+			const queryResults = LL.querySelector('div.card-body.p-0.pb-4.p-md-0 div.row.no-gutters.top-ltblue.pt-3.pl-3.pr-3 div.col-md-9.col-8.ml-0.mt-md-3.mt-0 div.row.text-left div.col-md-5.text-right.pb-3.pb-md-0 button').getAttribute('data-item-id');
 
-	        return (LL);    
+
+	        return queryResults;    
 	      
 	}));
 	
