@@ -880,7 +880,11 @@
 			const profileInfo = await scrapeProfileInfo(profileURL);
 			const skillInfo = await scrapeSkill(profileURL);
 
-			const combinedInfo = await profileInfo + skillInfo;
+			const combinedInfo = await {
+				...profileInfo,
+				...skillInfo
+
+			};
 
 			console.log(profileInfo);
 			console.log(skillInfo);
