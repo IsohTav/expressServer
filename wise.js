@@ -28,7 +28,7 @@
 
 	async function getProfile(api) {
 
-		let profiles = await axios.get('https://api.sandbox.transferwise.tech/v1/profiles', ["Header": `Authorization: Bearer ${api}`]).then(response => {return(response.id);});
+		let profiles = await axios.get('https://api.sandbox.transferwise.tech/v1/profiles', [Header: `Authorization: Bearer ${api}`]).then(response => {return(response.id);});
 		console.log(profiles);
 
 	};
