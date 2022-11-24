@@ -22,7 +22,7 @@
 
 	});
 
-	function test12 {
+	function test12() {
 
 		console.log('test');
 
