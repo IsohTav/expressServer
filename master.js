@@ -169,8 +169,8 @@
 				setTimeout(async function(){
 				
 					console.log(appURL[i3]);
-  					const profileInfo2 = await scrapeProfileInfo(appURL[i3]);
-					const skillInfo2 = await scrapeSkill(appURL[i3]);
+  					const profileInfo2 = await setTimeout(scrapeProfileInfo, 5000, appURL[i3]); 
+					const skillInfo2 = await setTimeout(scrapeSkill, 5000, appURL[i3]); 
 
 					const combinedInfo2 = await {
 						...profileInfo2,
