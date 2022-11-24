@@ -722,6 +722,7 @@
 
 							];
 
+			try {				
 
 		await page.setCookie(...cookies);
 
@@ -768,11 +769,15 @@
 			}
 
 			browser.close();
+
+			} catch (err) {};
 		};
 
 
 		async function scrapeSkill(url) {
 	
+			try {
+
 	const browser = await puppeteer.launch({headless: true, args:['--no-sandbox','--aggressive-cache-discard',
 																		'--disable-cache',
 																		'--disable-application-cache',
@@ -1034,6 +1039,8 @@
 	
 		
 		browser.close();
+
+		} catch (err) {};
 	};
 
 
@@ -1054,6 +1061,7 @@
 			console.log(combinedInfo);
 			airtableCreate(combinedInfo);
 			res.json(combinedInfo);
+
 
 
 		});
@@ -1103,7 +1111,7 @@
 
 
 			res.send('done');
-
+ 
 
 	});
 
