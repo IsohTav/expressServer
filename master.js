@@ -166,11 +166,11 @@
 
 			for (let i3 = 0; i3 < appURL.length; i3++) {
 
-				setTimeout(async function(){
+				
 				
 					console.log(appURL[i3]);
-  					const profileInfo2 = await setTimeout(scrapeProfileInfo, 5000, appURL[i3]); 
-					const skillInfo2 = await setTimeout(scrapeSkill, 5000, appURL[i3]); 
+  					const profileInfo2 = setTimeout(scrapeProfileInfo, 5000, appURL[i3]); 
+					const skillInfo2 = setTimeout(scrapeSkill, 5000, appURL[i3]); 
 
 					const combinedInfo2 = await {
 						...profileInfo2,
@@ -183,7 +183,7 @@
 						console.log(combinedInfo2);
 						airtableCreate(combinedInfo2);
 
-				}, 50); 
+				
   				
 			}
 
