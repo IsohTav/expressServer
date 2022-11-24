@@ -722,7 +722,7 @@
 
 							];
 
-			try {				
+			//try {				
 
 		await page.setCookie(...cookies);
 
@@ -770,13 +770,13 @@
 
 			browser.close();
 
-			} catch (err) {};
+			//} catch (err) {};
 		};
 
 
 		async function scrapeSkill(url) {
 	
-			try {
+			//try {
 
 	const browser = await puppeteer.launch({headless: true, args:['--no-sandbox','--aggressive-cache-discard',
 																		'--disable-cache',
@@ -1040,7 +1040,7 @@
 		
 		browser.close();
 
-		} catch (err) {};
+		//} catch (err) {};
 	};
 
 
