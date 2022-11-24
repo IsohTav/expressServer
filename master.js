@@ -172,6 +172,8 @@
   					const profileInfo2 = setTimeout(scrapeProfileInfo, 5000, appURL[i3]); 
 					const skillInfo2 = setTimeout(scrapeSkill, 5000, appURL[i3]); 
 
+
+					console.log(profileInfo2);
 					const combinedInfo2 = await {
 						...profileInfo2,
 						...skillInfo2,
