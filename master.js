@@ -127,6 +127,13 @@
 
 	
 
+	function sleep(ms) {
+    		return new Promise(resolve => setTimeout(resolve, ms));
+						
+						};
+
+
+
 	server.post('/request/emailsByJob', async (req, res) => {
 
 		const jobTD = req.body.jobTD;
@@ -169,11 +176,11 @@
 				
 				
 					console.log(appURL[i3]);
-  					const profileInfo2 = setTimeout(scrapeProfileInfo, 5000, appURL[i3]); 
-					const skillInfo2 = setTimeout(scrapeSkill, 5000, appURL[i3]); 
 
+					await sleep(5000);
+  					const profileInfo2 = await scrapeProfileInfo(appURL[i3]);
+					const skillInfo2 = await scrapeSkill(appURL[i3]);
 
-					console.log(profileInfo2);
 					const combinedInfo2 = await {
 						...profileInfo2,
 						...skillInfo2,
