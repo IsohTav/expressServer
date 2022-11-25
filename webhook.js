@@ -40,7 +40,7 @@
 										    if (err) { console.error(err); return; }
 										    console.log('Retrieved', record.id);
 											});
-		console.log(record.ZerotierIP);
+		console.log(record);
 		return record;
 
 	}
