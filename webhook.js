@@ -6,7 +6,7 @@
 
 
 	var Airtable = require('airtable');
-	var base = new Airtable({apiKey: 'key7wrwKdYtsERuwF'}).base('appWP3lnaTRbuLIG0');
+	var base = new Airtable({apiKey: 'key8q2CivSfd21Mpu'}).base('appkdHxBh7f5oCzwZ');
 
 
 	//express config
@@ -33,4 +33,16 @@
 	});
 
 
-	
+	async function getRecord(id) {
+
+
+		const record = await base('VM\'s').find(`${id}`, function(err, record) {
+										    if (err) { console.error(err); return; }
+										    console.log('Retrieved', record.id);
+											});
+		console.log(record);
+		return record;
+
+	}
+
+	getRecord('rec2ee7PJHG6lA9Os');
