@@ -33,5 +33,4 @@
 	});
 
 
-	console.log('message 1');
-	setTimeout(test12,5000);
+	
