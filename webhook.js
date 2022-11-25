@@ -53,7 +53,7 @@
 
 		};
 
-	server.post('/webhook/hearthbeat', (req,res) => {
+	server.post('/webhook/heartbeat', (req,res) => {
 
 		const record = req.body;
 		const i = record.reference;
