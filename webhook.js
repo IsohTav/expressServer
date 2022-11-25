@@ -38,9 +38,9 @@
 
 		const record = await base('VM\'s').find(`${id}`, function(err, record) {
 										    if (err) { console.error(err); return; }
-										    console.log('Retrieved', record.id);
+										    console.log('Retrieved', record.fields);
 											});
-		console.log(record.fields);
+		console.log(record);
 		return record;
 
 	}
