@@ -753,9 +753,9 @@
 		const imgTXT = await img.jsonValue();
 
 
-		const [el3] = await page.$x('/html/body/section[1]/div[2]/div/div/div[3]/form/input[2]');
-		const email = await el3.getProperty('value');
-		const emailTXT = await email.jsonValue();
+		//const [el3] = await page.$x('/html/body/section[1]/div[2]/div/div/div[3]/form/input[2]');
+		//const email = await el3.getProperty('value');
+		//const emailTXT = await email.jsonValue();
 
 		
 
@@ -776,7 +776,7 @@
 			return {
 				Name: nameTXT,
 				onlineJobsapplicantPhoto: [{"url":`${imgTXT}`}],
-				Applicantemail: emailTXT,
+				//Applicantemail: emailTXT,
 				Experienceoverview: expTXT,
 				skillSummary: skillTXT,
 				
