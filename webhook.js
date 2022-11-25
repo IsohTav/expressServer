@@ -40,9 +40,9 @@
 										    if (err) { console.error(err); return; }
 										    console.log('Retrieved', record.id);
 											});
-		console.log(record);
+		console.log(record.ZerotierIP);
 		return record;
 
 	}
 
-	getRecord('rec2ee7PJHG6lA9Os');
+	getRecord('rec9o9IlEOChQb7xx');
