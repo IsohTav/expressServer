@@ -33,6 +33,11 @@
 	});
 
 
+	function sleep(ms) {
+    		return new Promise(resolve => setTimeout(resolve, ms));
+						
+						};
+
 	async function getRecord(id) {
 
 
@@ -53,7 +58,7 @@
 
 		};
 
-	server.post('/webhook/heartbeat', (req,res) => {
+	server.post('/webhook/heartbeat', async (req,res) => {
 
 		const record = req.body;
 		const i = record.reference;
@@ -62,6 +67,7 @@
 		const idData = ['recGNfAcQi2YORE27','rec9o9IlEOChQb7xx','rec4UAXt95wVTlZdj','rec2jOkoroaQrcaND','reci1oQrdK6tsd5R0','recO63HKwfbmUil2D','ecxzea90SMQLpmO6','recdCKhhiOBx4VpCS','recIYdwb9VZhHl3UA','recdONmMRKDJ6bI4t','recXUwaCic3HkdJEF','rec6osfK1tAo4vpL0','recav8l3MdfHOQreD','rec7JLp9AJDOf4ydL','rec6LfsS0xoS6lDdZ','recdNCYaVNwt5BfPs','rec6CcZPhO3crSK6R','recuhNUzxxZl0Hj4e','rec4aATgeAaurcyRJ','receh0jvZkdtMbHpw','recILdhvOMCD7Ykma','recOcdNpcuZn5F7f1','rec4ectPPoKkVbuNu','rechiigMfu7gQVkQ4','rec5myS5u2tMWEGVu','recqSdNvEa1cb4O06','rec1BmaSBpNwQGmkU','recngJ1DMomnbpQbK','reccU5emnfpJc238U','recU2AmijdHN9JYDX','recELPFFih8OsvgT7','recLmjZvji6Yq6gp9','recCHMz94a8LIk3JP','rec4BdYC3GhJcO5Zs','recRrJwSfLwFbNJ6D','recW9hvN6xXPIpeHm','recVCYoJ1KJVOzOqu','recvVs3CR97LjxHsR','recmRYbH7IPpcpP2F','rec3wDy7ZULila4AB','reccrMADS2psRBRrA','recfgFCDbpTfzycsv','recIjz0yJduk82CMY','recDp5sprrzU3WxEr','rec7Rq2oKRXTCkChT','reciysSYWm0DRq9bS','recwUFIU2q1Ei5svT','recsB8NhdNmq4Mrqr','recpCD7RivAMsfiOB','recjWZbD648aEgcDA','recMSJBFtqobCjByw','recj5IeLxfYn6zdpw','recQSb2Fo7SRZ2zS9','receQHPrTYPr7bIL3'];
 
 		airtableUpdate(idData[i2],{"Heartbeat":false});
+		await sleep(2000);
 		airtableUpdate(idData[i2],{"Heartbeat":true});
 		res.send('done');
 
