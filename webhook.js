@@ -63,5 +63,6 @@
 
 		
 		airtableUpdate(idData[i2],{"Heartbeat":true});
+		res.send('done');
 
 	});
