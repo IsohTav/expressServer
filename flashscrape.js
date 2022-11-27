@@ -30,11 +30,11 @@
 	fixtures = await page.$$eval('div.sportName.table-tennis div', elements => elements.map(LL => LL.id));
 
 	const unqFixture = [...new Set(fixtures)];
-	const unqFixture2 = unqFixture.shift();
+	
 	var out = unqFixture2.map(function(v) { return v.slice(6) });
 	
 
-	console.log(out2);
+	console.log(out[1]);
 	return fixtures;
 
 		};
