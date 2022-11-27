@@ -54,24 +54,24 @@
 
 				//home scores
 				const homeScore = LL.querySelector('div.smh__part smh__score.smh__home smh__part--current').innerText;
-				const homesc1 = LL.querySelector('div.smh__part.smh__home.smh__part--1').?innerText;
-				const homesc2 = LL.querySelector('div.smh__part.smh__home.smh__part--2').?innerText;
-				const homesc3 = LL.querySelector('div.smh__part.smh__home.smh__part--3').?innerText;
-				const homesc4 = LL.querySelector('div.smh__part.smh__home.smh__part--4').?innerText;
-				const homesc5 = LL.querySelector('div.smh__part.smh__home.smh__part--5').?innerText;
-				const homesc6 = LL.querySelector('div.smh__part.smh__home.smh__part--6').?innerText;
-				const homesc7 = LL.querySelector('div.smh__part.smh__home.smh__part--7').?innerText;
+				const homesc1 = LL.querySelector('div.smh__part.smh__home.smh__part--1')?.innerText;
+				const homesc2 = LL.querySelector('div.smh__part.smh__home.smh__part--2')?.innerText;
+				const homesc3 = LL.querySelector('div.smh__part.smh__home.smh__part--3')?.innerText;
+				const homesc4 = LL.querySelector('div.smh__part.smh__home.smh__part--4')?.innerText;
+				const homesc5 = LL.querySelector('div.smh__part.smh__home.smh__part--5')?.innerText;
+				const homesc6 = LL.querySelector('div.smh__part.smh__home.smh__part--6')?.innerText;
+				const homesc7 = LL.querySelector('div.smh__part.smh__home.smh__part--7')?.innerText;
 
 
 				//away scores
 				const awayScore = LL.querySelector('div.smh__part.smh__score.smh__away.smh__part--current').innerText;
-				const awaysc1 = LL.querySelector('div.smh__part.smh__away.smh__part--1').?innerText;
-				const awaysc2 = LL.querySelector('div.smh__part.smh__away.smh__part--2').?innerText;
-				const awaysc3 = LL.querySelector('div.smh__part.smh__away.smh__part--3').?innerText;
-				const awaysc4 = LL.querySelector('div.smh__part.smh__away.smh__part--4').?innerText;
-				const awaysc5 = LL.querySelector('div.smh__part.smh__away.smh__part--5').?innerText;
-				const awaysc6 = LL.querySelector('div.smh__part.smh__away.smh__part--6').?innerText;
-				const awaysc7 = LL.querySelector('div.smh__part.smh__away.smh__part--7').?innerText;
+				const awaysc1 = LL.querySelector('div.smh__part.smh__away.smh__part--1')?.innerText;
+				const awaysc2 = LL.querySelector('div.smh__part.smh__away.smh__part--2')?.innerText;
+				const awaysc3 = LL.querySelector('div.smh__part.smh__away.smh__part--3')?.innerText;
+				const awaysc4 = LL.querySelector('div.smh__part.smh__away.smh__part--4')?.innerText;
+				const awaysc5 = LL.querySelector('div.smh__part.smh__away.smh__part--5')?.innerText;
+				const awaysc6 = LL.querySelector('div.smh__part.smh__away.smh__part--6')?.innerText;
+				const awaysc7 = LL.querySelector('div.smh__part.smh__away.smh__part--7')?.innerText;
 
 
 			return {
