@@ -21,23 +21,26 @@
 
 	async function scrapeFixture(url) {
 	
-	const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
-	const page = await browser.newPage();
+			const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
+			const page = await browser.newPage();
 
-	await page.goto(url);
-
-
-	fixtures = await page.$$eval('div.sportName.table-tennis div', elements => elements.map(LL => LL.id));
-
-	const unqFixture = [...new Set(fixtures)];
-	
-	const out = unqFixture.map(function(v) { return v.slice(6) });
-	const out2 = out.slice(1);
-
-	console.log(out2);
-	return fixtures;
-
-		};
+			await page.goto(url);
 
 
-	scrapeFixture('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/fixtures/');
+			fixtures = await page.$$eval('div.sportName.table-tennis div', elements => elements.map(LL => LL.id));
+
+			const unqFixture = [...new Set(fixtures)];
+			
+			const out = unqFixture.map(function(v) { return v.slice(6) });
+			const out2 = out.slice(1);
+
+			console.log(out2);
+			return fixtures;
+
+				};
+
+
+
+
+
+	scrapeFixture('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/results/');
