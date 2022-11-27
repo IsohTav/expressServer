@@ -29,10 +29,10 @@
 
 	fixtures = await page.$$eval('div.sportName.table-tennis div', elements => elements.map(LL => LL.id));
 
-	const ids = fixtures.map(o => o.id)
-	const filtered = fixtures.filter(({id}, index) => !ids.includes(id, index + 1))
+	const unqFixture = [...new Set(fixtures)];
 
-	console.log(filtered);
+
+	console.log(unqFixture);
 	return fixtures;
 
 		};
