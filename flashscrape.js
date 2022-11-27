@@ -48,8 +48,8 @@
 
 
 
-	console.log(fixtures);
-	return fixtures;
+	console.log(fixtures.gameID);
+	return fixtures.gameID;
 
 		};
 
