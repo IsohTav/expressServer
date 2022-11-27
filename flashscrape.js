@@ -53,7 +53,7 @@
 
 
 				//home scores
-				const homeScore = LL.querySelector('div.smh__part smh__score.smh__home smh__part--current').innerText;
+				const homeScore = LL.querySelector('div.smh__part smh__score.smh__home smh__part--current')?.innerText;
 				const homesc1 = LL.querySelector('div.smh__part.smh__home.smh__part--1')?.innerText;
 				const homesc2 = LL.querySelector('div.smh__part.smh__home.smh__part--2')?.innerText;
 				const homesc3 = LL.querySelector('div.smh__part.smh__home.smh__part--3')?.innerText;
@@ -64,7 +64,7 @@
 
 
 				//away scores
-				const awayScore = LL.querySelector('div.smh__part.smh__score.smh__away.smh__part--current').innerText;
+				const awayScore = LL.querySelector('div.smh__part.smh__score.smh__away.smh__part--current')?.innerText;
 				const awaysc1 = LL.querySelector('div.smh__part.smh__away.smh__part--1')?.innerText;
 				const awaysc2 = LL.querySelector('div.smh__part.smh__away.smh__part--2')?.innerText;
 				const awaysc3 = LL.querySelector('div.smh__part.smh__away.smh__part--3')?.innerText;
