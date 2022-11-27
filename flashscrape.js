@@ -19,6 +19,11 @@
 	});
 
 
+	function sleep(ms) {
+    		return new Promise(resolve => setTimeout(resolve, ms));
+						
+						};
+
 	async function scrapeFixture(url) {
 	
 			const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']});
@@ -35,6 +40,18 @@
 			const out2 = out.slice(1);
 
 			console.log(out2);
+
+			const mainScores = [];
+
+			for (let i = 0; i < await out2.length; i2++) {
+
+				sleep(5000);
+				score = await scrapeScore(out2[i]);
+				mainScores.push(score);
+
+			};
+
+			console.log(mainScores);
 			return fixtures;
 
 				};
@@ -102,4 +119,4 @@
 	}
 
 
-	scrapeScore('zP7pgqgB');
+	
