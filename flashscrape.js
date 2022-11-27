@@ -12,11 +12,7 @@
 	//express config
 	server.use(express.json());
 	server.use(bodyParser.text()); 
-	server.listen(8000, () => {
-		console.log('incoming')
-
-	});
-
+	
 	server.get('/', (req, res) => {
 		res.json({hello: "world"});
 
@@ -34,7 +30,7 @@
 	fixtures = await page.$$eval('div.sportName.table-tennis', elements => elements.map(LL => {
 
 	        //Top skills section of OLJ profile
-	        const gameID = LL.querySelector('div').id;
+	        const gameID = LL.getAttribute('id');
 	        
 
 
@@ -48,8 +44,8 @@
 
 
 
-	console.log(fixtures.gameID);
-	return fixtures.gameID;
+	console.log(fixtures);
+	return fixtures;
 
 		};
 
