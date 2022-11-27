@@ -43,7 +43,7 @@
 
 			const mainScores = [];
 
-			for (let i = 0; i < await out2.length; i2++) {
+			for (let i = 0; i < await out2.length; i++) {
 
 				sleep(5000);
 				score = await scrapeScore(out2[i]);
