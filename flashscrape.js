@@ -31,7 +31,7 @@
 
 	const unqFixture = [...new Set(fixtures)];
 	
-	var out = unqFixture2.map(function(v) { return v.slice(6) });
+	var out = unqFixture.map(function(v) { return v.slice(6) });
 	
 
 	console.log(out[1]);
