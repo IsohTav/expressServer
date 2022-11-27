@@ -30,14 +30,15 @@
 	fixtures = await page.$$eval('div.sportName.table-tennis', elements => elements.map(LL => {
 
 	        //Top skills section of OLJ profile
-	        const gameID = LL.getAttribute('id');
+	        const gameID = LL.querySelectorAll('div');
+	        const gameID2 = gameID.getAttribute('id');
 	        
 
 
 
 
 	        return {
-	          gameID: gameID,
+	          gameID2: gameID2,
 	          
 	      }
 	}));
