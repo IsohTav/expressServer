@@ -6,7 +6,7 @@
 
 
 	var Airtable = require('airtable');
-	var base = new Airtable({apiKey: ''}).base('');
+	
 
 
 	//express config
