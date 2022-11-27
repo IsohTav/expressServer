@@ -102,4 +102,4 @@
 	}
 
 
-	scrapeScore('https://www.flashscore.com/match/zP7pgqgB/#/match-summary');
+	scrapeScore('zP7pgqgB');
