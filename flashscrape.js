@@ -47,6 +47,7 @@
 
 				sleep(5000);
 				score = await scrapeScore(out2[i]);
+				console.log(score);
 				mainScores.push(score);
 
 			};
