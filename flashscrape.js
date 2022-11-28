@@ -71,6 +71,7 @@
 
 
 				//home scores
+				const homePlayer = LL.querySelector('div.smh__participantName.smh__home a').innerText;
 				const homeScore = LL.querySelector('div.smh__part.smh__score.smh__home.smh__part--current')?.innerText || 0;
 				const homesc1 = LL.querySelector('div.smh__part.smh__home.smh__part--1')?.innerText || 0;
 				const homesc2 = LL.querySelector('div.smh__part.smh__home.smh__part--2')?.innerText || 0;
@@ -82,6 +83,7 @@
 
 
 				//away scores
+				const awayPlayer = LL.querySelector('div.smh__participantName.smh__away a').innerText;
 				const awayScore = LL.querySelector('div.smh__part.smh__score.smh__away.smh__part--current')?.innerText || 0;
 				const awaysc1 = LL.querySelector('div.smh__part.smh__away.smh__part--1')?.innerText || 0;
 				const awaysc2 = LL.querySelector('div.smh__part.smh__away.smh__part--2')?.innerText || 0;
@@ -93,6 +95,7 @@
 
 
 			return {
+				homePlayer: homePlayer,
 				homeScore: homeScore,
 				homesc1: homesc1,
 				homesc2: homesc2,
@@ -101,6 +104,7 @@
 				homesc5: homesc5,
 				homesc6: homesc6,
 				homesc7: homesc7,
+				awayPlayer: awayPlayer,
 				awayScore: awayScore,
 				awaysc1: awaysc1,
 				awaysc2: awaysc2,
