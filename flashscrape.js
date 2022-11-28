@@ -71,7 +71,7 @@
 
 
 				//home scores
-				const homeScore = LL.querySelector('div.smh__part smh__score.smh__home.smh__part--current')?.innerText || 0;
+				const homeScore = LL.querySelector('div.smh__part.smh__score.smh__home.smh__part--current')?.innerText || 0;
 				const homesc1 = LL.querySelector('div.smh__part.smh__home.smh__part--1')?.innerText || 0;
 				const homesc2 = LL.querySelector('div.smh__part.smh__home.smh__part--2')?.innerText || 0;
 				const homesc3 = LL.querySelector('div.smh__part.smh__home.smh__part--3')?.innerText || 0;
