@@ -119,5 +119,5 @@
 
 	}
 
-	scrapeFixture('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/results/');
+	scrapeScore('KWRmc5zO')''
 	
