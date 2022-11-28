@@ -119,5 +119,5 @@
 
 	}
 
-	scrapeScore('KWRmc5zO')''
+	scrapeScore('KWRmc5zO');
 	
