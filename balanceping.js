@@ -32,9 +32,7 @@ const express = require('express');
 
 	async function getRecordID(searchID) {
 
-		const response = await fetch(`https://api.airtable.com/v0/appkdHxBh7f5oCzwZ/VMs?filterByFormula=search(${searchID}%2C%7Bvm+ID%7D)`, {
-			"headers": {
-				"Authorization": "Bearer key8q2CivSfd21Mpu"}});
+		
 
 		const ID = await response.json();
 		return ID;
@@ -47,7 +45,7 @@ const express = require('express');
 		const info = req.body;
 
 		const data = [];
-		const recordid = await getRecordID(req.body.reference);
+		const recordid = await base('VMs').select({filterByFormula: `SEARCH("${req.body.reference}",{vm ID})`,});
 
 		if (req.body.bookie = 'Sportsbet') {
 
