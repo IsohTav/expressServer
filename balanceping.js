@@ -43,6 +43,7 @@ const express = require('express');
 	server.post('/webhook/balance', async (req, res) => {
 
 		const info = req.body;
+		const modes = info.modes;
 
 		
 		const record = await base('VMs').select({"filterByFormula": `SEARCH("${req.body.reference}", {vm ID})`}).firstPage();
@@ -77,7 +78,7 @@ const express = require('express');
 
 		
 		console.log(recordID);
-		console.log(info);
+		console.log(modes);
 		
 
 
