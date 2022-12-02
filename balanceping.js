@@ -44,8 +44,8 @@ const express = require('express');
 
 		const info = req.body;
 		const modes = info.modes;
-		const qb = modes.QB;
-		const tracksQB = qb.tracks;
+		const qb = modes.qb;
+		
 
 		
 		const record = await base('VMs').select({"filterByFormula": `SEARCH("${req.body.reference}", {vm ID})`}).firstPage();
@@ -80,7 +80,7 @@ const express = require('express');
 
 		
 		console.log(recordID);
-		console.log(JSON.stringify(tracksQB));
+		console.log(JSON.stringify(qb));
 		
 
 
