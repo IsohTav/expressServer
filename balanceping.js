@@ -76,7 +76,7 @@ const express = require('express');
 		};
 
 		console.log(data);
-		console.log(record);
+		console.log(recordID);
 
 
 		res.send('done');
