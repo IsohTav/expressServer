@@ -44,7 +44,7 @@ const express = require('express');
 
 		const info = req.body;
 		const modes = info.modes;
-		const qb = modes.qb;
+		const qb = modes.QB;
 		const tracksQB = qb.tracks;
 
 		
