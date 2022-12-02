@@ -44,34 +44,34 @@ const express = require('express');
 
 		const info = req.body;
 
-		const data = [];
+		
 		const record = await base('VMs').select({"filterByFormula": `SEARCH("${req.body.reference}", {vm ID})`}).firstPage();
 		const recordID = record[0].id;
 		
 
-		if (req.body.bookie = 'Sportsbet') {
+		const data = if (req.body.bookie = 'Sportsbet') {
 
 			const data1 = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is Sportsbet');
-			data.push(data1);
+			return data1;
 
 		} else if (req.body.bookie = 'Pointsbet') {
 
 			const data2 = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is Pointsbet');
-			data.push(data2);
+			return data2;
 
 		} else if (req.body.bookie = 'BetR') {
 
 			const data3 = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is BetR');
-			data.push(data3);
+			return data3;
 
 		} else if (req.body.bookie = 'TAB') {
 
 			const data4 = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is TAB');
-			data.push(data4);
+			return data4;
 
 		};
 
