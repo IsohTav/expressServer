@@ -24,7 +24,7 @@ const express = require('express');
 
 	async function airtableUpdate(recordid,data) {
 
-	    base('VM\'s').update([{"id": `${recordid}`, "fields": data}])
+	    base('VMs').update([{"id": `${recordid}`, "fields": data}])
 	    .then(() => console.log("Airtable update successful"))
 	    .catch(e => console.log(e))
 
@@ -32,7 +32,7 @@ const express = require('express');
 
 	async function getRecordID(searchID) {
 
-		const ID = await fetch(`https://api.airtable.com/v0/appkdHxBh7f5oCzwZ/VM's?filterByFormula=search(%22${searchID}%22%2C%7Bvm+ID%7D)`, {
+		const ID = await fetch(`https://api.airtable.com/v0/appkdHxBh7f5oCzwZ/VMs?filterByFormula=search(%22${searchID}%22%2C%7Bvm+ID%7D)`, {
 			"headers": {
 				"Authorization": "Bearer key8q2CivSfd21Mpu"}});
 
