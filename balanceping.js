@@ -32,7 +32,9 @@ const express = require('express');
 
 	async function getRecordID(searchID) {
 
-		const ID = await fetch(`https://api.airtable.com/v0/appkdHxBh7f5oCzwZ/VMs?filterByFormula=search(%22${searchID}%22%2C%7Bvm+ID%7D)?api_key=key8q2CivSfd21Mpu`);
+		const ID = await fetch(`https://api.airtable.com/v0/appkdHxBh7f5oCzwZ/VMs?filterByFormula=search(${searchID}%2C%7Bvm+ID%7D)`, {
+			"headers": {
+				"Authorization": "Bearer key8q2CivSfd21Mpu"}});
 
 		return ID;
 
