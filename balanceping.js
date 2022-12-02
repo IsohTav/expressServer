@@ -30,11 +30,44 @@ const express = require('express');
 
 		};
 
+	async function getRecordID(searchID) {
 
-	server.post('/webhook/balance', (req, res) => {
+		const ID = await fetch(`https://api.airtable.com/v0/appkdHxBh7f5oCzwZ/VM's?filterByFormula=search(%22${searchID}%22%2C%7Bvm+ID%7D)`, {"headers":{"Authorization: Bearer key8q2CivSfd21Mpu"}});
+
+		return ID;
+
+
+	};
+
+	server.post('/webhook/balance', async (req, res) => {
 
 		const info = req.body;
-		console.log(info);
+
+		const recordid = await getRecordID(req.body.reference);
+
+		if (req.body.bookie = 'Sportsbet') {
+
+			let data = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
+
+		} else if (req.body.bookie = 'Pointsbet') {
+
+			let data = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
+
+
+		} else if (req.body.bookie = 'BetR') {
+
+			let data = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
+
+		} else if (req.body.bookie = 'TAB') {
+
+			let data = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
+
+		};
+
+		console.log(data);
+		console.log(recordid);
+
+
 		res.send('done');
 
 
