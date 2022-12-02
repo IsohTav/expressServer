@@ -49,36 +49,36 @@ const express = require('express');
 		const recordID = record[0].id;
 		
 
-		const data = if (req.body.bookie = 'Sportsbet') {
+		if (req.body.bookie = 'Sportsbet') {
 
-			const data1 = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
+			const data = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is Sportsbet');
-			return data1;
+			airtableUpdate(recordID,data);
 
 		} else if (req.body.bookie = 'Pointsbet') {
 
-			const data2 = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
+			const data = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is Pointsbet');
-			return data2;
+			airtableUpdate(recordID,data);
 
 		} else if (req.body.bookie = 'BetR') {
 
-			const data3 = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
+			const data = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is BetR');
-			return data3;
+			airtableUpdate(recordID,data);
 
 		} else if (req.body.bookie = 'TAB') {
 
-			const data4 = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
+			const data = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is TAB');
-			return data4;
+			airtableUpdate(recordID,data);
 
 		};
 
 		console.log(data);
 		console.log(recordID);
 
-		airtableUpdate(recordID,data);
+		
 
 
 		res.send('done');
