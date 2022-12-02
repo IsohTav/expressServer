@@ -24,7 +24,7 @@ const express = require('express');
 
 	async function airtableUpdate(recordid,data) {
 
-	    base('VMs').update([{"id": `${recordid}`, "fields": data}])
+	    base('VMs').update([{"id": `${recordid}`, "fields": data}],{typecast: true})
 	    .then(() => console.log("Airtable update successful"))
 	    .catch(e => console.log(e))
 
