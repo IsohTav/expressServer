@@ -46,7 +46,7 @@ const express = require('express');
 
 		const data = [];
 		const record = await base('VMs').select({"filterByFormula": `SEARCH("${req.body.reference}", {vm ID})`}).firstPage();
-		const recordID = record[0].fields;
+		const recordID = record[0].id;
 		
 
 		if (req.body.bookie = 'Sportsbet') {
