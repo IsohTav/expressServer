@@ -85,3 +85,10 @@ const express = require('express');
 
 
 	});
+
+	server.post('/webhook/' async (req, res) => {
+
+		const info = req.body;
+		console.log(info);
+
+	});
