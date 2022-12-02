@@ -43,9 +43,7 @@ const express = require('express');
 	server.post('/webhook/balance', async (req, res) => {
 
 		const info = req.body;
-		const modes = JSON.stringify(info.modes);
-		const qb = modes.QB;
-		
+		const modes = info.modes;
 		
 
 		
@@ -81,7 +79,7 @@ const express = require('express');
 
 		
 		console.log(recordID);
-		console.log(qb);
+		
 		
 
 
