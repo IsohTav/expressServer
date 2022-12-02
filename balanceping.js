@@ -45,27 +45,32 @@ const express = require('express');
 
 		const info = req.body;
 
+		const data = [];
 		const recordid = await getRecordID(req.body.reference);
 
 		if (req.body.bookie = 'Sportsbet') {
 
-			const data = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
+			const data1 = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is Sportsbet');
+			data.push(data1);
 
 		} else if (req.body.bookie = 'Pointsbet') {
 
-			const data = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
+			const data2 = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is Pointsbet');
+			data.push(data2);
 
 		} else if (req.body.bookie = 'BetR') {
 
-			const data = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
+			const data3 = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is BetR');
+			data.push(data3);
 
 		} else if (req.body.bookie = 'TAB') {
 
-			const data = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
+			const data4 = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
 			console.log('Bookie is TAB');
+			data.push(data4);
 
 		};
 
