@@ -77,7 +77,7 @@ const express = require('express');
 
 		
 		console.log(recordID);
-
+		console.log(info);
 		
 
 
