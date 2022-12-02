@@ -49,20 +49,23 @@ const express = require('express');
 
 		if (req.body.bookie = 'Sportsbet') {
 
-			let data = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
+			const data = {"Sportsbet cash":`${req.body.cashBalance}`,"Sportsbet bonus":`${req.body.bonusBalance}`};
+			console.log('Bookie is Sportsbet');
 
 		} else if (req.body.bookie = 'Pointsbet') {
 
-			let data = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
-
+			const data = {"Pointsbet cash":`${req.body.cashBalance}`,"Pointsbet bonus":`${req.body.bonusBalance}`};
+			console.log('Bookie is Pointsbet');
 
 		} else if (req.body.bookie = 'BetR') {
 
-			let data = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
+			const data = {"BetR cash":`${req.body.cashBalance}`,"BetR bonus":`${req.body.bonusBalance}`};
+			console.log('Bookie is BetR');
 
 		} else if (req.body.bookie = 'TAB') {
 
-			let data = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
+			const data = {"TAB cash":`${req.body.cashBalance}`,"TAB bonus":`${req.body.bonusBalance}`};
+			console.log('Bookie is TAB');
 
 		};
 
