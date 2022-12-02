@@ -44,7 +44,7 @@ const express = require('express');
 
 		const info = req.body;
 		const modes = info.modes;
-		const qb = modes.qb;
+		
 		
 
 		
@@ -80,7 +80,7 @@ const express = require('express');
 
 		
 		console.log(recordID);
-		console.log(JSON.stringify(qb));
+		console.log(JSON.stringify(modes));
 		
 
 
