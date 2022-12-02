@@ -78,6 +78,8 @@ const express = require('express');
 		console.log(data);
 		console.log(recordID);
 
+		airtableUpdate(recordID,data);
+
 
 		res.send('done');
 
