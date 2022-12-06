@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch({args: ['--no-sandbox']});
   const page = await browser.newPage();
   await page.goto('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/results/');
-  await page.screenshot({path: 'example.png'});
+ 
   const results = await page.evaluate(() => {
     const rows = Array.from(document.querySelectorAll('#fs-results > div.fs-table > div.fs-table__body > div.fs-table__row'));
     return rows.map(row => {
