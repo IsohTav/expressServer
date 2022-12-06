@@ -6,12 +6,12 @@ const puppeteer = require('puppeteer');
   await page.screenshot({path: 'example.png'});
   const divs = await page.$$eval('div.event.event--results div div.sportName.table-tennis div', divs => divs.map(div => div.id));
   const filteredDivs = divs.filter(Boolean);
-  console.log(divs);
-  console.log(filteredDivs);
+  const divsTrimmed = filteredDivs.map(div => div.substring(5));
+  const links = [];
+  for (let i = 0; i < divsTrimmed.length; i++) {
+    links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
+  }
   
-  await page.click(`#${filteredDivs[0]}`);
-const url = await page.url();
-  
-  console.log(url);
+  console.log(links);
   await browser.close();
 })();
