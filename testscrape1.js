@@ -8,5 +8,10 @@ const puppeteer = require('puppeteer');
   const filteredDivs = divs.filter(Boolean);
   console.log(divs);
   console.log(filteredDivs);
+  
+  await page.click(`#${filteredDivs[0]}`);
+const url = await page.url();
+  
+  console.log(url);
   await browser.close();
 })();
