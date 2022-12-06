@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
   await page.goto('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/results/');
   await page.screenshot({path: 'example.png'});
-  const results = await page.$$eval('#fs-results > div.fs-table > div.fs-table__body > div.fs-table__row', rows => {
+  const results = await page.$$eval('#fs-results div.fs-table div.fs-table__body div.fs-table__row', rows => {
     return rows.map(row => {
       const columns = row.querySelectorAll('div.fs-table__cell');
       return {
