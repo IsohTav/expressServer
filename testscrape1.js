@@ -20,6 +20,6 @@ const puppeteer = require('puppeteer');
     });
   });
   const mozolGames = results.filter(result => result.homeTeam.includes('Mozol P.') || result.awayTeam.includes('Mozol P.'));
-  console.log(mozolGames);
+  console.log(results);
   await browser.close();
 })();
