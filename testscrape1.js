@@ -24,7 +24,7 @@ const puppeteer = require('puppeteer');
   const homeScore2 = section.querySelector('smh__part.smh__home.smh__part--2');
     
     return {
-    homeScore1:homeScore1
+    homeScore1:homeScore1,
     homeScore2:homeScore2
     
     };
