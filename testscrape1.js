@@ -29,9 +29,9 @@ const puppeteer = require('puppeteer');
     return {
     homeScore1:homeScore1,
     homeScore2:homeScore2,
-    homeScore2:homeScore3,
-    homeScore2:homeScore4,
-    homeScore2:homeScore5,
+    homeScore3:homeScore3,
+    homeScore4:homeScore4,
+    homeScore5:homeScore5
     
     };
   
@@ -50,9 +50,9 @@ const puppeteer = require('puppeteer');
     return {
     awayScore1:awayScore1,
     awayScore2:awayScore2,
-    awayScore2:awayScore3,
-    awayScore2:awayScore4,
-    awayScore2:awayScore5,
+    awayScore3:awayScore3,
+    awayScore4:awayScore4,
+    awayScore5:awayScore5
     
     };
   
