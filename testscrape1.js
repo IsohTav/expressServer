@@ -1,6 +1,8 @@
 const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'key8q2CivSfd21Mpu' }).base('appfWswW4PFm3mL8A');
 async function createRecord(homePlayer,awayPlayer,gameTime,homeScores,awayScores) {
+  
+          const homeScore1 = homeScores.homeScore1;
   try {
     const record = await base('Table 1').create([
       {
@@ -8,7 +10,8 @@ async function createRecord(homePlayer,awayPlayer,gameTime,homeScores,awayScores
           "homePlayer": `${homePlayer}`,
           "awayPlayer": `${awayPlayer}`,
           "Gamedatetime":`${gameTime}`,
-          ...homeScores
+          "homeScore1":`${homeScore1}`
+          
         }
       }
     ]);
