@@ -1,16 +1,13 @@
 const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'key8q2CivSfd21Mpu' }).base('appfWswW4PFm3mL8A');
-async function createRecord(homePlayer,awayPlayer,gameTime,homeScores,awayScores) {
+async function createRecord(data) {
   
           const homeScore1 = homeScores.homeScore1;
   try {
     const record = await base('Table 1').create([
       {
         "fields": {
-          "homePlayer": `${homePlayer}`,
-          "awayPlayer": `${awayPlayer}`,
-          "Gamedatetime":`${gameTime}`,
-          "homeScore1":`${homeScore1}`
+          ...data
           
         }
       }
@@ -95,7 +92,12 @@ const puppeteer = require('puppeteer');
   console.log(homeScores);
   console.log(awayScores);
 
-  createRecord(homePlayer,awayPlayer,gameTime,homeScores,awayScores);
+  const data = {
+    "homeScore1":`${homeScores.homeScore1}`
+  
+  };
+    
+  console.log(data);
   }
  
   
