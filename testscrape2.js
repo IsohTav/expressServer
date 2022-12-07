@@ -41,7 +41,7 @@ for (let i = 0; i < divsTrimmed.length; i++) {
 }
 for (let i = 0; i < links.length; i++) {
   await page.goto(links[i]);
-  await page.waitFor(1000);
+  
   const homePlayer = await page.$$eval('div.duelParticipant__home span.event__participant--name', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
   const awayPlayer = await page.$$eval('div.duelParticipant__away span.event__participant--name', awayPlayer => awayPlayer.map(awayPlayer => awayPlayer.innerText));
   const section = await page.$$eval('div.section', section => section.map(section => section.innerText));
