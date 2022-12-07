@@ -52,12 +52,12 @@ const puppeteer = require('puppeteer');
   const gamescoreHome = section.querySelector('div.smh__part.smh__score.smh__home.smh__part--current').innerText;
     
     return {
-    homeScore1:homeScore1,
-    homeScore2:homeScore2,
-    homeScore3:homeScore3,
-    homeScore4:homeScore4,
-    homeScore5:homeScore5,
-    gamescoreHome:gamescoreHome
+    "homeScore1":`${homeScore1}`,
+    "homeScore2":`${homeScore2}`,
+    "homeScore3":`${homeScore3}`,
+    "homeScore4":`${homeScore4}`,
+    "homeScore5":`${homeScore5}`,
+    "gamescoreHome":`${gamescoreHome}`
     
     };
   
