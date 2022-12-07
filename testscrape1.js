@@ -22,10 +22,37 @@ const puppeteer = require('puppeteer');
   
   const homeScore1 = section.querySelector('div.smh__part.smh__home.smh__part--1').innerText;
   const homeScore2 = section.querySelector('div.smh__part.smh__home.smh__part--2').innerText;
+  const homeScore3 = section.querySelector('div.smh__part.smh__home.smh__part--3').innerText;
+  const homeScore4 = section.querySelector('div.smh__part.smh__home.smh__part--4').innerText;
+  const homeScore5 = section.querySelector('div.smh__part.smh__home.smh__part--5').innerText;
     
     return {
     homeScore1:homeScore1,
-    homeScore2:homeScore2
+    homeScore2:homeScore2,
+    homeScore2:homeScore3,
+    homeScore2:homeScore4,
+    homeScore2:homeScore5,
+    
+    };
+  
+  
+  
+  }));
+    
+  const awayScores = await page.$$eval('div.section div.smh__template.table-tennis', section => section.map(section => {
+  
+  const awayScore1 = section.querySelector('div.smh__part.smh__away.smh__part--1').innerText;
+  const awayScore2 = section.querySelector('div.smh__part.smh__away.smh__part--2').innerText;
+  const awayScore3 = section.querySelector('div.smh__part.smh__away.smh__part--3').innerText;
+  const awayScore4 = section.querySelector('div.smh__part.smh__away.smh__part--4').innerText;
+  const awayScore5 = section.querySelector('div.smh__part.smh__away.smh__part--5').innerText;
+    
+    return {
+    awayScore1:awayScore1,
+    awayScore2:awayScore2,
+    awayScore2:awayScore3,
+    awayScore2:awayScore4,
+    awayScore2:awayScore5,
     
     };
   
@@ -37,6 +64,7 @@ const puppeteer = require('puppeteer');
   console.log(homePlayer);
   console.log(awayPlayer);
   console.log(homeScores);
+  console.log(awayScores);
 
   }
  
