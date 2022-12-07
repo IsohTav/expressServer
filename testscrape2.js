@@ -23,16 +23,22 @@ const puppeteer = require('puppeteer');
   const browser = await puppeteer.launch({args: ['--no-sandbox']});
   const page = await browser.newPage();
   await page.goto('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/results/');
+  await page.screenshot({path: 'example.png'});
   const divs = await page.$$eval('div.event.event--results div div.sportName.table-tennis div', divs => divs.map(div => div.id));
-const filteredDivs = divs.filter(Boolean);
-const divsTrimmed = filteredDivs.map(div => div.substring(5));
-const links = [];
-for (let i = 0; i < divsTrimmed.length; i++) {
+  const filteredDivs = divs.filter(Boolean);
+  const divsTrimmed = filteredDivs.map(div => div.substring(5));
+  const links = [];
+  for (let i = 0; i < divsTrimmed.length; i++) {
+    links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
+  }
+  
+  console.log(links);
+  for (let i = 0; i < divsTrimmed.length; i++) {
   links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
 }
 for (let i = 0; i < links.length; i++) {
   await page.goto(links[i]);
-  await page.waitFor(1000);
+  
   const homePlayer = await page.$$eval('div.duelParticipant__home div.participant__participantNameWrapper div.participant__participantName.participant__overflow a', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
   const awayPlayer = await page.$$eval('div.duelParticipant__away div.participant__participantNameWrapper div.participant__participantName.participant__overflow a', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
   const gameTime = await page.$$eval('div.duelParticipant__startTime div', gameTime => gameTime.map(gameTime => gameTime.innerText));
@@ -43,8 +49,8 @@ for (let i = 0; i < links.length; i++) {
     const homeScore4 = section.querySelector('div.smh__part.smh__home.smh__part--4').innerText;
     const homeScore5 = section.querySelector('div.smh__part.smh__home.smh__part--5').innerText;
     return {
-      homePlayer: homePlayer,
-      awayPlayer: awayPlayer,
+      homePlayer: homePlayer[0],
+      awayPlayer: awayPlayer[0],
       section: section.innerText,
       homeScore1: homeScore1,
       homeScore2: homeScore2,
@@ -54,5 +60,9 @@ for (let i = 0; i < links.length; i++) {
     }
   }));
   console.log(homeScores);
-};
 }
+ 
+  
+  
+  await browser.close();
+})();
