@@ -18,6 +18,7 @@ const puppeteer = require('puppeteer');
   
   const homePlayer = await page.$$eval('div.duelParticipant__home div.participant__participantNameWrapper div.participant__participantName.participant__overflow a', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
   const awayPlayer = await page.$$eval('div.duelParticipant__away div.participant__participantNameWrapper div.participant__participantName.participant__overflow a', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
+  const gameTime = await page.$$eval('div.duelParticipant__startTime div', gameTime => gameTime.map(gameTime => gameTime.innerText));
   const homeScores = await page.$$eval('div.section div.smh__template.table-tennis', section => section.map(section => {
   
   const homeScore1 = section.querySelector('div.smh__part.smh__home.smh__part--1').innerText;
@@ -67,6 +68,7 @@ const puppeteer = require('puppeteer');
     
   console.log(homePlayer);
   console.log(awayPlayer);
+  console.log(gameTime);
   console.log(homeScores);
   console.log(awayScores);
 
