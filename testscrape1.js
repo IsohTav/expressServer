@@ -19,7 +19,7 @@ const puppeteer = require('puppeteer');
   const homePlayer = await page.$$eval('div.duelParticipant__home div.participant__participantNameWrapper div.participant__participantName.participant__overflow a', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
 
   console.log(homePlayer);
-  console.log(awayPlayer);
+
   }
  
   
