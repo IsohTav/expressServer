@@ -17,8 +17,10 @@ const puppeteer = require('puppeteer');
   await page.goto(links[i]);
   
   const homePlayer = await page.$$eval('div.duelParticipant__home div.participant__participantNameWrapper div.participant__participantName.participant__overflow a', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
+  const awayPlayer = await page.$$eval('div.duelParticipant__away div.participant__participantNameWrapper div.participant__participantName.participant__overflow a', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
 
   console.log(homePlayer);
+  console.log(awayPlayer);
 
   }
  
