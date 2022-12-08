@@ -56,6 +56,4 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
     console.error(error);
   });
 }
-const quoteData = '{"sourceCurrency": "GBP", "targetCurrency": "USD", "sourceAmount": 100}';
-const quote = JSON.parse(quoteData);
-createQuote(quote);
+createQuote(16622021, "AUD", "AUD", 100);  // <-- updated arguments to create a quote for AUD to AUD
