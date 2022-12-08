@@ -21,7 +21,7 @@ function getQuote(profile, source, target, amount) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', `https://api.sandbox.transferwise.tech/v3/profiles/${profile}/quotes`, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('Authorization', 'Bearer ' + '<YOUR_TOKEN>');
+  xhr.setRequestHeader('Authorization', 'Bearer ' + `${api}`);
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
       var response = JSON.parse(xhr.responseText);
