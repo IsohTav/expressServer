@@ -32,6 +32,7 @@ function getQuoteId(callback) {
   };
   var req = https.request(options, function(res) {
     res.on('data', function(d) {
+      console.log(d);
       callback(d);
     });
   });
@@ -48,9 +49,8 @@ function getQuoteId(callback) {
     console.error(e);
   });
 }
-getQuoteId(function(data) {
-  console.log(data);
-});
+
+getQuoteID
 
 
 
