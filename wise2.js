@@ -44,7 +44,8 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
   const req = https.request(options, (res) => {
     // handle the response from the server here
     res.on("data", (d) => {
-      console.log(d);  // log the response data to the console
+      const responseData = JSON.parse(d.toString());  // <-- convert the Buffer to a string and parse the JSON
+      console.log(responseData);  // <-- log the response data to the console
     });
   });
 
@@ -57,3 +58,4 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
 
 // example usage
 createQuote(16622021, "AUD", "AUD", 100);  // <-- updated arguments to create a quote for AUD to AUD
+
