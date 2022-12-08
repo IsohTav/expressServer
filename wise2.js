@@ -34,7 +34,6 @@ function getQuote(profile, source, target, amount) {
     rateType: 'FIXED',
     type: 'BALANCE_PAYOUT',
     targetAmount: amount,
-    sourceAmount: amount,
     type: 'BALANCE_PAYOUT'
   }));
 }
