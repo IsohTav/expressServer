@@ -24,12 +24,12 @@ async function getProfile(api) {
 
 
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
-  const data = JSON.stringify({
-    profileId: profile,
-    sourceCurrency: sourceCurrency,
-    targetCurrency: targetCurrency,
-    sourceAmount: targetAmount,
-  });
+  const data = {
+  "profileId": `${profile}`,
+  "sourceCurrency": `${sourceCurrency}`,
+  "targetCurrency": `${targetCurrency}`,
+  "sourceAmount": `${targetAmount}`,
+}; 
 
   const options = {
     hostname: "api.sandbox.transferwise.tech",
