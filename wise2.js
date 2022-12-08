@@ -22,8 +22,8 @@ async function getQuote(api, source, target, amount) {
     target: target,
     rateType: 'FIXED',
     type: 'BALANCE_PAYOUT',
-    targetAmount: amount,
-    sourceAmount: amount
+    targetAmount: amount
+    
   }, { headers: { 'Authorization': `Bearer ${api}` } }).then(response => {
     return response.data.id;
   });
