@@ -21,13 +21,15 @@ async function getProfile(api) {
   return profiles;
 }
 
+const https = require("https");  // <-- require the https module
+
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
-  const data = {
+  const data = JSON.stringify({
     profileId: profile,
     sourceCurrency: sourceCurrency,
     targetCurrency: targetCurrency,
     sourceAmount: targetAmount,
-  };
+  });
 
   const options = {
     hostname: "api.sandbox.transferwise.tech",
@@ -36,7 +38,7 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
     headers: {
       Authorization: "Bearer 2594b963-9cfb-40ce-82d2-8cd85197fc0a",
       "Content-Type": "application/json",
-      "Content-Length": JSON.stringify(data).length,
+      "Content-Length": Buffer.byteLength(data),  // <-- set the Content-Length header to the length of the data in bytes
     },
   };
 
@@ -48,12 +50,13 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
     });
   });
 
-  req.write(JSON.stringify(data));  // <-- write the JSON data to the request body
+  req.write(data);
   req.end();  // <-- signal the end of the request
   req.on("error", (error) => {
     console.error(error);  // <-- handle any errors that occur during the request
   });
 }
+
 
 // example usage
 createQuote(16622021, "AUD", "AUD", 100);
