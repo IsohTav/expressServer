@@ -50,7 +50,10 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
     // Handle the response from the server here
     res.on("data", (d) => {
       const responseData = JSON.parse(d.toString());  // <-- convert the Buffer to a string and parse the JSON
-      console.log(responseData);  // <-- log the response data to the console
+
+      // Map the id of the quote to a constant using the Object.assign() method
+      const quote = Object.assign({}, { id: responseData.id });
+      console.log(quote);  // <-- log the quote object to the console
     });
   });
 
@@ -60,6 +63,5 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
     console.error(error);  // <-- handle any errors that occur during the request
   });
 }
-
 // example usage
 createQuote(16622021, "AUD", "AUD", 100);  // <-- updated arguments to create a quote for AUD to AUD
