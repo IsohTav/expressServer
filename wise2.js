@@ -24,6 +24,7 @@ async function getProfile(api) {
 
 
 
+
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
   const data = JSON.stringify({
     profileId: profile,
@@ -49,11 +50,16 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
 
     // Handle the response from the server here
     res.on("data", (d) => {
-      const responseData = JSON.parse(d.toString());  // <-- convert the Buffer to a string and parse the JSON
+      // Use the try/catch statement to catch any errors that occur when parsing the response data
+      try {
+        const responseData = JSON.parse(d.toString());  // <-- convert the Buffer to a string and parse the JSON
 
-      // Map the id of the quote to a constant using the Object.assign() method
-      const quote = Object.assign({}, { id: responseData.id });
-      console.log(quote);  // <-- log the quote object to the console
+        // Map the id of the quote to a constant using the Object.assign() method
+        const quote = Object.assign({}, { id: responseData.id });
+        console.log(quote);  // <-- log the quote object to the console
+      } catch (error) {
+        console.error(error);  // <-- handle any errors that occur when parsing the response data
+      }
     });
   });
 
