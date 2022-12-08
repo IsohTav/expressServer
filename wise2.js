@@ -20,41 +20,40 @@ async function getProfile(api) {
 
 /* create a quote in wise and return the id */
 
-function getQuoteId(callback) {
-  var options = {
-    hostname: 'api.sandbox.transferwise.tech',
-    path: '/v3/profiles/16622021/quotes',
-    method: 'POST',
+const https = require("https");
+
+function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
+  const data = JSON.stringify({
+    sourceCurrency: sourceCurrency,
+    targetCurrency: targetCurrency,
+    profile: profile,
+    targetAmount: targetAmount,
+  });
+
+  const options = {
+    hostname: "api.sandbox.transferwise.tech",
+    path: `/v3/profiles/${profile}/quotes`,
+    method: "POST",
     headers: {
-      'Authorization': 'Bearer 2594b963-9cfb-40ce-82d2-8cd85197fc0a',
-      'Content-Type': 'application/json'
-    }
+      "Authorization": "Bearer 2594b963-9cfb-40ce-82d2-8cd85197fc0a",
+      "Content-Type": "application/json",
+      "Content-Length": data.length,
+    },
   };
-  var req = https.request(options, function(res) {
-    res.on('data', function(d) {
-      console.log(d);
-      callback(d);
+
+  const req = https.request(options, (res) => {
+    // handle the response from the server here
+    res.on("data", (d) => {
+      console.log(d);  // log the response data to the console
     });
   });
-  req.write(JSON.stringify({
-    "sourceCurrency": "AUD",
-    "targetCurrency": "AUD",
-    "type": "BALANCE_PAYOUT",
-    "profile": 16622021,
-    "targetAmount": 100,
- 
-  }));
+
+  req.write(data);
   req.end();
-  req.on('error', function(e) {
-    console.error(e);
+  req.on("error", (error) => {
+    console.error(error);
   });
 }
 
-getQuoteId(function(data) {
-  console.log(data);
-});
-
-
-getQuoteId(function(data) {
-  console.log(data);  // <-- this will print the response data
-});
+// example usage
+createQuote(16622021, "AUD", "AUD", 100);  // <-- updated arguments to create a quote for AUD to AUD
