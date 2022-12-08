@@ -10,7 +10,7 @@ async function getProfile(api) {
   return profiles;
 }
 
-getProfiles(api);
+getProfile(api);
   
   
 
