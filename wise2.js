@@ -9,8 +9,8 @@ async function getProfile(api) {
   console.log(profiles);
   return profiles;
 }
-async {
+
 await getProfiles(api);
   
   
-};
+
