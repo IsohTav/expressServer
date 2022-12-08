@@ -1,7 +1,7 @@
 /* require axios and puppeteer */
 var axios = require('axios');
 var puppeteer = require('puppeteer');
-const jsonData = require("./data.json");
+var bodyParser = require('body-parser');
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
