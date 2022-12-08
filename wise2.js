@@ -1,6 +1,8 @@
 /* require axios and puppeteer */
 var axios = require('axios');
 var puppeteer = require('puppeteer');
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
 
 /* set token */
 const api = "2594b963-9cfb-40ce-82d2-8cd85197fc0a";
