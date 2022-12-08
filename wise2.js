@@ -29,7 +29,7 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
           "targetCurrency": `${targetCurrency}`,
           "sourceAmount": `${targetAmount}`,
          
-        };
+        }
   });
 
   const options = {
