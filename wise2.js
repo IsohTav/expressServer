@@ -14,7 +14,22 @@ async function getProfile(api) {
   return profiles;
 }
 
-getProfile(api);
-  
-  
+/* create a quote in wise and return the id */
+async function getQuote(api, source, target, amount) {
+  let profile = await getProfile(api);
+  let quote = await axios.post(`https://api.sandbox.transferwise.tech/v3/profiles/${profile}/quotes`, {
+    source: source,
+    target: target,
+    rateType: 'FIXED',
+    type: 'BALANCE_PAYOUT',
+    targetAmount: amount,
+    sourceAmount: amount
+  }, { headers: { 'Authorization': `Bearer ${api}` } }).then(response => {
+    return response.data.id;
+  });
+  console.log(quote);
+  return quote;
+}
+
+getQuote(api, 'AUD', 'AUD', 100);
 
