@@ -23,8 +23,6 @@ async function getProfile(api) {
 
 
 
-
-
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
   const data = JSON.stringify({
     profileId: profile,
