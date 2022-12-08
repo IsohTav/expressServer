@@ -15,21 +15,29 @@ async function getProfile(api) {
 }
 
 /* create a quote in wise and return the id */
-async function getQuote(api, source, target, amount) {
-  let profile = await getProfile(api);
-  let quote = await axios.post(`https://api.sandbox.transferwise.tech/v3/profiles/${profile}/quotes`, {
+function getQuote(profile, source, target, amount) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', `https://api.sandbox.transferwise.tech/v3/profiles/${profile}/quotes`, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Authorization', 'Bearer ' + '<YOUR_TOKEN>');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+      var response = JSON.parse(xhr.responseText);
+      console.log(response);
+    }
+  }
+  xhr.send(JSON.stringify({
     source: source,
     target: target,
     rateType: 'FIXED',
     type: 'BALANCE_PAYOUT',
-    targetAmount: amount
-   
-  }, { headers: { 'Authorization': `Bearer ${api}`, 'Content-Type': 'application/json' } }).then(response => {
-    return response.data.id;
-  });
-  console.log(quote);
-  return quote;
+    targetAmount: amount,
+    sourceAmount: amount,
+    type: 'BALANCE_PAYOUT'
+  }));
 }
+/* await the response of getQuote and log the response */
+getQuote('16622021', 'AUD', 'AUD', '100');
 
-getQuote(api, 'AUD', 'AUD', 100);
+
 
