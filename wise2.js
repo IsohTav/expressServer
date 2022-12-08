@@ -23,11 +23,13 @@ async function getProfile(api) {
 const https = require("https");
 
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
-  const data = JSON.stringify({
-    sourceCurrency: sourceCurrency,
-    targetCurrency: targetCurrency,
-    profile: profile,
-    targetAmount: targetAmount,
+  const data = {
+          "profileId":${profile},
+          "sourceCurrency": `${sourceCurrency}`,
+          "targetCurrency": `${targetCurrency}`,
+          "sourceAmount": `${targetAmount}`,
+         
+        };
   });
 
   const options = {
