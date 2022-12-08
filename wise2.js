@@ -9,4 +9,6 @@ async function getProfile(api) {
   return profiles;
 }
 
-getProfile(api);
+const businessProfiles = getProfile(api).then(profiles => { return profiles.filter(profile => { return profile.type === 'business' }) });
+/* log business profiles */
+console.log(businessProfiles);
