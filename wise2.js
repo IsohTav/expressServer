@@ -23,8 +23,8 @@ async function getQuote(api, source, target, amount) {
     rateType: 'FIXED',
     type: 'BALANCE_PAYOUT',
     targetAmount: amount
-    
-  }, { headers: { 'Authorization': `Bearer ${api}` } }).then(response => {
+   
+  }, { headers: { 'Authorization': `Bearer ${api}`, 'Content-Type': 'application/json' } }).then(response => {
     return response.data.id;
   });
   console.log(quote);
