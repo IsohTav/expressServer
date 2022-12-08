@@ -30,14 +30,14 @@ function getQuote(profile, source, target, amount) {
       console.log(response);
     }
   }
-  xhr.send(JSON.stringify({
+  xhr.send(JSON.stringify({"
     source: source,
     target: target,
     rateType: 'FIXED',
     type: 'BALANCE_PAYOUT',
     targetAmount: amount,
     type: 'BALANCE_PAYOUT'
-  }));
+  "}));
 }
 /* await the response of getQuote and log the response */
 getQuote('16622021', 'AUD', 'AUD', '100');
