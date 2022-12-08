@@ -19,16 +19,13 @@ async function getProfile(api) {
   return profiles;
 }
 
-/* create a quote in wise and return the id */
-const https = require("https");
-
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
-  const data = JSON.stringify({
+  const data = {
     profileId: profile,
     sourceCurrency: sourceCurrency,
     targetCurrency: targetCurrency,
     sourceAmount: targetAmount,
-  });
+  };
 
   const options = {
     hostname: "api.sandbox.transferwise.tech",
@@ -37,10 +34,24 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
     headers: {
       Authorization: "Bearer 2594b963-9cfb-40ce-82d2-8cd85197fc0a",
       "Content-Type": "application/json",
-      "Content-Length": data.length,
+      "Content-Length": JSON.stringify(data).length,
     },
   };
 
   const req = https.request(options, (res) => {
     // handle the response from the server here
-    res.on("data", (
+    res.on("data", (d) => {
+      const responseData = JSON.parse(d.toString());  // <-- convert the Buffer to a string and parse the JSON
+      console.log(responseData);  // <-- log the response data to the console
+    });
+  });
+
+  req.write(JSON.stringify(data));  // <-- write the JSON data to the request body
+  req.end();  // <-- signal the end of the request
+  req.on("error", (error) => {
+    console.error(error);  // <-- handle any errors that occur during the request
+  });
+}
+
+// example usage
+createQuote(16622021, "AUD", "AUD", 100);
