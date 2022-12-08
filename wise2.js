@@ -24,7 +24,7 @@ const https = require("https");
 
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
   const data = {
-          "profileId":${profile},
+          "profileId":`${profile}`,
           "sourceCurrency": `${sourceCurrency}`,
           "targetCurrency": `${targetCurrency}`,
           "sourceAmount": `${targetAmount}`,
