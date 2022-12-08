@@ -55,4 +55,6 @@ getQuoteId(function(data) {
 });
 
 
-
+getQuoteId(function(data) {
+  console.log(data);  // <-- this will print the response data
+});
