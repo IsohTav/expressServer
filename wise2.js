@@ -23,6 +23,7 @@ async function getProfile(api) {
 
 
 
+
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
   const data = JSON.stringify({
     profileId: profile,
@@ -38,12 +39,15 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
     headers: {
       Authorization: "Bearer 2594b963-9cfb-40ce-82d2-8cd85197fc0a",
       "Content-Type": "application/json",
-      "Content-Length": Buffer.byteLength(data),  // <-- set the Content-Length header to the length of the data in bytes
+      "Content-Length": Buffer.byteLength(data),
     },
   };
 
   const req = https.request(options, (res) => {
-    // handle the response from the server here
+    // Set the encoding for the data that is received from the server
+    res.setEncoding("utf8");
+
+    // Handle the response from the server here
     res.on("data", (d) => {
       const responseData = JSON.parse(d.toString());  // <-- convert the Buffer to a string and parse the JSON
       console.log(responseData);  // <-- log the response data to the console
@@ -57,6 +61,5 @@ function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
   });
 }
 
-
 // example usage
-createQuote(16622021, "AUD", "AUD", 100);
+createQuote(16622021, "AUD", "AUD", 100);  // <-- updated arguments to create a quote for AUD to AUD
