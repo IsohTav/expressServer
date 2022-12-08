@@ -21,7 +21,7 @@ async function getProfile(api) {
   return profiles;
 }
 
-const https = require("https");  // <-- require the https module
+
 
 function createQuote(profile, sourceCurrency, targetCurrency, targetAmount) {
   const data = JSON.stringify({
