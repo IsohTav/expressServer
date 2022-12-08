@@ -2,7 +2,7 @@
 var axios = require('axios');
 var puppeteer = require('puppeteer');
 var bodyParser = require('body-parser');
-var https = require('https');
+
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 
