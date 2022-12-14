@@ -84,7 +84,8 @@ for (let i = 0; i < links.length; i++) {
   ...awayScores[0],
     homePlayer: homePlayer[0],
     awayPlayer: awayPlayer[0],
-    Gamedatetime: score[0]
+    Gamedatetime: score[0],
+    gameURL: links[i]
   
   }
   console.log(allScores);
