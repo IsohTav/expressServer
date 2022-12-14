@@ -42,8 +42,9 @@ for (let i = 0; i < divsTrimmed.length; i++) {
 for (let i = 0; i < links.length; i++) {
   await page.goto(links[i]);
   
-  const homePlayer = await page.$$eval('div.duelParticipant__home span.event__participant--name', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
-  const awayPlayer = await page.$$eval('div.duelParticipant__away span.event__participant--name', awayPlayer => awayPlayer.map(awayPlayer => awayPlayer.innerText));
+  const homePlayer = await page.$$eval('div.duelParticipant div.duelParticipant__home', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
+  const awayPlayer = await page.$$eval('div.duelParticipant div.duelParticipant__away', awayPlayer => awayPlayer.map(awayPlayer => awayPlayer.innerText));
+  const score = await page.$$eval('div.duelParticipant div.duelParticipant__home', score => score.map(score => score.innerText));
   const homeScores = await page.$$eval('div.section div.smh__template.table-tennis', section => section.map(section => {
     const homeScore1 = section.querySelector('div.smh__part.smh__home.smh__part--1').innerText;
     const homeScore2 = section.querySelector('div.smh__part.smh__home.smh__part--2').innerText;
@@ -77,7 +78,10 @@ for (let i = 0; i < links.length; i++) {
   
   const allScores = {
   ...homeScores[0],
-  ...awayScores[0]  
+  ...awayScores[0],
+    homePlayer: homePlayer,
+    awayPlayer: awayPlayer,
+    Gamedatetime: score
   
   }
   console.log(allScores);
