@@ -51,8 +51,7 @@ for (let i = 0; i < links.length; i++) {
     const homeScore4 = section.querySelector('div.smh__part.smh__home.smh__part--4').innerText;
     const homeScore5 = section.querySelector('div.smh__part.smh__home.smh__part--5').innerText;
     return {
-      homePlayer: homePlayer,
-      awayPlayer: awayPlayer,
+      
       homeScore1: homeScore1,
       homeScore2: homeScore2,
       homeScore3: homeScore3,
