@@ -59,9 +59,30 @@ for (let i = 0; i < links.length; i++) {
       homeScore5: homeScore5
     }
   }));
-  console.log(homeScores);
+  const awayScores = await page.$$eval('div.section div.smh__template.table-tennis', section => section.map(section => {
+    const awayScore1 = section.querySelector('div.smh__part.smh__away.smh__part--1').innerText;
+    const awayScore2 = section.querySelector('div.smh__part.smh__away.smh__part--2').innerText;
+    const awayScore3 = section.querySelector('div.smh__part.smh__away.smh__part--3').innerText;
+    const awayScore4 = section.querySelector('div.smh__part.smh__away.smh__part--4').innerText;
+    const awayScore5 = section.querySelector('div.smh__part.smh__away.smh__part--5').innerText;
+    return {
+      
+      awayScore1: awayScore1,
+      awayScore2: awayScore2,
+      awayScore3: awayScore3,
+      awayScore4: awayScore4,
+      awayScore5: awayScore5
+    }
+  }));
   
-  createRecord(homeScores[0]);
+  const allScores = {
+  homeScores: homeScores[0],
+  awayScores: awayScores[0]  
+  
+  }
+  console.log(allScores);
+  
+  createRecord(allScores);
   
   
   
