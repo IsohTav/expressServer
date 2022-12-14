@@ -42,7 +42,7 @@ for (let i = 0; i < links.length; i++) {
   
   const homePlayer = await page.$$eval('div.duelParticipant div.duelParticipant__home', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
   const awayPlayer = await page.$$eval('div.duelParticipant div.duelParticipant__away', awayPlayer => awayPlayer.map(awayPlayer => awayPlayer.innerText));
-  const score = await page.$$eval('div.duelParticipant div.duelParticipant__score', score => score.map(score => score.innerText));
+  const score = await page.$$eval('div.duelParticipant div.duelParticipant__startTime', score => score.map(score => score.innerText));
   const homeScores = await page.$$eval('div.section div.smh__template.table-tennis', section => section.map(section => {
     const homeScore1 = section.querySelector('div.smh__part.smh__home.smh__part--1').innerText;
     const homeScore2 = section.querySelector('div.smh__part.smh__home.smh__part--2').innerText;
