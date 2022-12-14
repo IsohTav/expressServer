@@ -2,7 +2,7 @@ const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'key8q2CivSfd21Mpu' }).base('appfWswW4PFm3mL8A');
 async function createRecord(data) {
   
-          const homeScore1 = data.homeScore1;
+          
   try {
     const record = await base('Table 1').create([
       {
