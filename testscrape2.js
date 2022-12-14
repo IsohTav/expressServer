@@ -49,7 +49,7 @@ for (let i = 0; i < links.length; i++) {
     const homeScore3 = section.querySelector('div.smh__part.smh__home.smh__part--3').innerText;
     const homeScore4 = section.querySelector('div.smh__part.smh__home.smh__part--4').innerText;
     const homeScore5 = section.querySelector('div.smh__part.smh__home.smh__part--5').innerText;
-    const gamescoreHome = section.querySelector('div.smh__part smh__score.smh__home.smh__part--current').innerText;
+    const gamescoreHome = section.querySelector('div.smh__part.smh__score.smh__home.smh__part--current').innerText;
 
     return {
       
@@ -67,7 +67,7 @@ for (let i = 0; i < links.length; i++) {
     const awayScore3 = section.querySelector('div.smh__part.smh__away.smh__part--3').innerText;
     const awayScore4 = section.querySelector('div.smh__part.smh__away.smh__part--4').innerText;
     const awayScore5 = section.querySelector('div.smh__part.smh__away.smh__part--5').innerText;
-    const gamescoreAway = section.querySelector('div.smh__part smh__score.smh__away.smh__part--current').innerText;
+    const gamescoreAway = section.querySelector('div.smh__part.smh__score.smh__away.smh__part--current').innerText;
     return {
       
       awayScore1: awayScore1,
