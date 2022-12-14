@@ -60,6 +60,9 @@ for (let i = 0; i < links.length; i++) {
     }
   }));
   console.log(homeScores);
+  const homeScores2 = homeScores.map(score => JSON.stringify(score));
+  console.log(homeScores2);
+  airtableCreate(homeScores2);
   
   
   
