@@ -49,13 +49,16 @@ for (let i = 0; i < links.length; i++) {
     const homeScore3 = section.querySelector('div.smh__part.smh__home.smh__part--3').innerText;
     const homeScore4 = section.querySelector('div.smh__part.smh__home.smh__part--4').innerText;
     const homeScore5 = section.querySelector('div.smh__part.smh__home.smh__part--5').innerText;
+    const gamescoreHome = section.querySelector('div.smh__part smh__score.smh__home.smh__part--current').innerText;
+
     return {
       
       homeScore1: homeScore1,
       homeScore2: homeScore2,
       homeScore3: homeScore3,
       homeScore4: homeScore4,
-      homeScore5: homeScore5
+      homeScore5: homeScore5,
+      gamescoreHome: gamescoreHome
     }
   }));
   const awayScores = await page.$$eval('div.section div.smh__template.table-tennis', section => section.map(section => {
@@ -64,13 +67,15 @@ for (let i = 0; i < links.length; i++) {
     const awayScore3 = section.querySelector('div.smh__part.smh__away.smh__part--3').innerText;
     const awayScore4 = section.querySelector('div.smh__part.smh__away.smh__part--4').innerText;
     const awayScore5 = section.querySelector('div.smh__part.smh__away.smh__part--5').innerText;
+    const gamescoreAway = section.querySelector('div.smh__part smh__score.smh__away.smh__part--current').innerText;
     return {
       
       awayScore1: awayScore1,
       awayScore2: awayScore2,
       awayScore3: awayScore3,
       awayScore4: awayScore4,
-      awayScore5: awayScore5
+      awayScore5: awayScore5,
+      gamescoreAway: gamescoreAway
     }
   }));
   
