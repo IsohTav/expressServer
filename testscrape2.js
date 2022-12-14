@@ -44,7 +44,6 @@ for (let i = 0; i < links.length; i++) {
   
   const homePlayer = await page.$$eval('div.duelParticipant__home span.event__participant--name', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
   const awayPlayer = await page.$$eval('div.duelParticipant__away span.event__participant--name', awayPlayer => awayPlayer.map(awayPlayer => awayPlayer.innerText));
-  const section = await page.$$eval('div.section', section => section.map(section => section.innerText));
   const homeScores = await page.$$eval('div.section div.smh__template.table-tennis', section => section.map(section => {
     const homeScore1 = section.querySelector('div.smh__part.smh__home.smh__part--1').innerText;
     const homeScore2 = section.querySelector('div.smh__part.smh__home.smh__part--2').innerText;
@@ -52,9 +51,8 @@ for (let i = 0; i < links.length; i++) {
     const homeScore4 = section.querySelector('div.smh__part.smh__home.smh__part--4').innerText;
     const homeScore5 = section.querySelector('div.smh__part.smh__home.smh__part--5').innerText;
     return {
-      homePlayer: homePlayer[0],
-      awayPlayer: awayPlayer[0],
-      section: section.innerText,
+      homePlayer: homePlayer,
+      awayPlayer: awayPlayer,
       homeScore1: homeScore1,
       homeScore2: homeScore2,
       homeScore3: homeScore3,
