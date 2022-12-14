@@ -62,7 +62,9 @@ for (let i = 0; i < links.length; i++) {
   console.log(homeScores);
   const homeScores2 = homeScores.map(score => JSON.stringify(score));
   console.log(homeScores2);
-  createRecord(homeScores2);
+  const homeScores3 = homeScores2.map(score => JSON.parse(score));
+  console.log(homeScores3);
+  createRecord(homeScores3);
   
   
   
