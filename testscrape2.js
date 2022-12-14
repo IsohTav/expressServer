@@ -9,7 +9,7 @@ async function createRecord(data) {
         "fields": {
           ...data
           
-        }
+        }, typecast: true
       }
     ]);
     console.log(record);
