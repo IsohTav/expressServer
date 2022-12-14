@@ -1,22 +1,20 @@
 const Airtable = require('airtable');
 const base = new Airtable({ apiKey: 'key8q2CivSfd21Mpu' }).base('appfWswW4PFm3mL8A');
 async function createRecord(data) {
-  
-          
   try {
     const record = await base('Table 1').create([
       {
         "fields": {
           ...data
-          
-        }, typecast: true
+        }
       }
-    ]);
+    ], { typecast: true });
     console.log(record);
   } catch (err) {
     console.error(err);
   }
 };
+
 
 const puppeteer = require('puppeteer');
 (async () => {
