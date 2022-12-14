@@ -76,8 +76,8 @@ for (let i = 0; i < links.length; i++) {
   }));
   
   const allScores = {
-  homeScores: homeScores[0],
-  awayScores: awayScores[0]  
+  ...homeScores[0],
+  ...awayScores[0]  
   
   }
   console.log(allScores);
