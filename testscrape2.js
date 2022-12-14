@@ -77,9 +77,9 @@ for (let i = 0; i < links.length; i++) {
   const allScores = {
   ...homeScores[0],
   ...awayScores[0],
-    homePlayer: homePlayer,
-    awayPlayer: awayPlayer,
-    Gamedatetime: score
+    homePlayer: homePlayer[0],
+    awayPlayer: awayPlayer[0],
+    Gamedatetime: score[0]
   
   }
   console.log(allScores);
