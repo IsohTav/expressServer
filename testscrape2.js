@@ -60,7 +60,11 @@ for (let i = 0; i < links.length; i++) {
     }
   }));
   console.log(homeScores);
-  createRecord(homeScores);
+  const homeScores2 = {"homeScore1":`${homeScores.homeScore1}`,
+                       "homeScore2":`${homeScores.homeScore2}`
+                      }
+  
+  createRecord(homeScores2);
 }
  
   
