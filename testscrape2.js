@@ -26,7 +26,7 @@ const puppeteer = require('puppeteer');
   const currentDate = new Date().toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
 
   // Ignore the first div by slicing the array of divs
-  return divs.slice(1)
+  return divs.slice(0)
     .map(div => {
       // Retrieve the event time element for each div
       const eventTimeElement = div.querySelector('div.event__time');
