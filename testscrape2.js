@@ -28,7 +28,7 @@ const puppeteer = require('puppeteer');
     return divs
       .map(div => {
         // Retrieve the event time element for each div
-        const eventTimeElement = div.querySelector('div div.event__time');
+        const eventTimeElement = div.querySelector('div.event__time');
         // Format the event time element inner text so that it is in the same format as the current date
         const eventTime = new Date(eventTimeElement.innerText).toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
         // If the event time matches the current date, return the div id
