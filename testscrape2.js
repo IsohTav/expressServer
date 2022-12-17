@@ -21,25 +21,25 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
   await page.goto('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/results/');
   await page.screenshot({path: 'example.png'});
-  const divs = await page.$$eval('div.event.event--results div div.sportName.table-tennis div', divs => {
-    // Get the current date in the format "DD.MM.YYYY"
-    const currentDate = new Date().toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
+ const divs = await page.$$eval('div.event.event--results div div.sportName.table-tennis div', divs => {
+  // Get the current date in the format "DD.MM.YYYY"
+  const currentDate = new Date().toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
 
-    return divs
-      .map(div => {
-        // Retrieve the event time element for each div
-        const eventTimeElement = div.querySelector('div.event__time');
-        // Format the event time element inner text so that it is in the same format as the current date
-        const eventTime = new Date(eventTimeElement.innerText).toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
-        // If the event time matches the current date, return the div id
-        if (eventTime === currentDate) {
-          return div.id;
-        }
-      })
-      .filter(Boolean); // Filter out any falsy values (e.g. undefined)
-  });
+  // Ignore the first div by slicing the array of divs
+  return divs.slice(1)
+    .map(div => {
+      // Retrieve the event time element for each div
+      const eventTimeElement = div.querySelector('div.event__time');
+      // Format the event time element inner text so that it is in the same format as the current date
+      const eventTime = new Date(eventTimeElement.innerText).toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
+      // If the event time matches the current date, return the div id
+      if (eventTime === currentDate) {
+        return div.id;
+      }
+    })
+    .filter(id => id !== undefined); // Filter out any undefined values
+});
 
-  // Filter the divs and trim the id to get the match links
   console.log(divs);
   const filteredDivs = divs.filter(Boolean);
   const divsTrimmed = filteredDivs.map(div => div.substring(5));
