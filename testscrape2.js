@@ -39,6 +39,7 @@ const puppeteer = require('puppeteer');
 });
 
 // Filter the divs and trim the id to get the match links
+  console.log(divs);
 const filteredDivs = divs.filter(Boolean);
 const divsTrimmed = filteredDivs.map(div => div.substring(5));
 const links = [];
