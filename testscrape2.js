@@ -22,15 +22,32 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
   await page.goto('https://www.flashscore.com/table-tennis/others-men/liga-pro-cz/results/');
   await page.screenshot({path: 'example.png'});
-  const divs = await page.$$eval('div.event.event--results div div.sportName.table-tennis div', divs => divs.map(div => div.id));
-  const filteredDivs = divs.filter(Boolean);
-  const divsTrimmed = filteredDivs.map(div => div.substring(5));
-  const links = [];
-  for (let i = 0; i < divsTrimmed.length; i++) {
-    links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
-  }
+ const divs = await page.$$eval('div.event.event--results div div.sportName.table-tennis div', divs => {
+  // Get the current date in the format "DD.MM.YYYY"
+  const currentDate = new Date().toLocaleDateString("en-US", {year: "numeric", month: "2-digit", day: "2-digit"});
   
-  console.log(links);
+  return divs
+    .map(div => {
+      // Retrieve the event time element for each div
+      const eventTimeElement = div.querySelector('div.event__time');
+      // If the event time element exists and the inner text matches the current date, return the div id
+      if (eventTimeElement && eventTimeElement.innerText === currentDate) {
+        return div.id;
+      }
+    })
+    .filter(Boolean); // Filter out any falsy values (e.g. undefined)
+});
+
+// Filter the divs and trim the id to get the match links
+const filteredDivs = divs.filter(Boolean);
+const divsTrimmed = filteredDivs.map(div => div.substring(5));
+const links = [];
+for (let i = 0; i < divsTrimmed.length; i++) {
+  links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
+}
+
+console.log(links);
+
   for (let i = 0; i < divsTrimmed.length; i++) {
   links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
 }
@@ -89,37 +106,11 @@ for (let i = 0; i < links.length; i++) {
   
   }
   
-  const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth() + 1;
-const currentDay = currentDate.getDate();
-
-// Check if the score is from the current year, month, and day
-const isCurrentDate = score => {
-  // Split the score string into an array of parts
-  const parts = score.score.split(' ');
-
-  // Extract the date from the score string
-  const date = parts[0];
-
-  // Split the date string into an array of parts
-  const dateParts = date.split('.');
-
-  // Extract the year, month, and day from the date string
-  const year = dateParts[2];
-  const month = dateParts[1];
-  const day = dateParts[0];
-
-  // Check if the year, month, and day from the date string match the current year, month, and day
-  return year === currentYear && month === currentMonth && day === currentDay;
-};
-
-// Use the isCurrentDate function to filter the allScores array
-const filteredScores = allScores.filter(isCurrentDate);
-
-  console.log(filteredScores);
   
-  createRecord(filteredScores);
+
+  console.log(allScores);
+  
+ 
   
   
   
