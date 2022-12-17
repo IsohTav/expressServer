@@ -35,7 +35,7 @@ if (eventTimeElement) {
   eventTime = new Date(eventTimeElement.innerText).toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
 }
       // If the event time matches the current date, return the div id
-      if (eventTime == currentDate) {
+      if (eventTime === currentDate) {
         return div.id;
       }
     })
