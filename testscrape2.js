@@ -88,9 +88,38 @@ for (let i = 0; i < links.length; i++) {
     gameURL: links[i]
   
   }
-  console.log(allScores);
   
-  createRecord(allScores);
+  const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const currentMonth = currentDate.getMonth() + 1;
+const currentDay = currentDate.getDate();
+
+// Check if the score is from the current year, month, and day
+const isCurrentDate = score => {
+  // Split the score string into an array of parts
+  const parts = score.score.split(' ');
+
+  // Extract the date from the score string
+  const date = parts[0];
+
+  // Split the date string into an array of parts
+  const dateParts = date.split('.');
+
+  // Extract the year, month, and day from the date string
+  const year = dateParts[2];
+  const month = dateParts[1];
+  const day = dateParts[0];
+
+  // Check if the year, month, and day from the date string match the current year, month, and day
+  return year === currentYear && month === currentMonth && day === currentDay;
+};
+
+// Use the isCurrentDate function to filter the allScores array
+const filteredScores = allScores.filter(isCurrentDate);
+
+  console.log(filteredScores);
+  
+  createRecord(filteredScores);
   
   
   
