@@ -24,7 +24,7 @@ const puppeteer = require('puppeteer');
   await page.screenshot({path: 'example.png'});
  const divs = await page.$$eval('div.event.event--results div div.sportName.table-tennis div', divs => {
   // Get the current date in the format "DD.MM.YYYY"
-  const currentDate = new Date().toLocaleDateString("en-US", {year: "numeric", month: "2-digit", day: "2-digit"});
+  const currentDate = new Date().toLocaleDateString("en-US", {day: "2-digit", month: "2-digit", year: "numeric"});
   
   return divs
     .map(div => {
@@ -47,6 +47,7 @@ for (let i = 0; i < divsTrimmed.length; i++) {
 }
 
 console.log(links);
+
 
   for (let i = 0; i < divsTrimmed.length; i++) {
   links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
