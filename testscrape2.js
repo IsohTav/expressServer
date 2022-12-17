@@ -29,7 +29,7 @@ const puppeteer = require('puppeteer');
   return divs
     .map(div => {
       // Retrieve the event time element for each div
-      const eventTimeElement = div.querySelector('div.event__time').innerText;
+      const eventTimeElement = div.querySelector('event__time');
       // If the event time element exists and the inner text matches the current date, return the div id
       if (eventTimeElement && eventTimeElement.innerText === currentDate) {
         return div.id;
