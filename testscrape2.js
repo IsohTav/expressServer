@@ -32,6 +32,7 @@ const puppeteer = require('puppeteer');
   
   
   const FixedLinks = [...new Set(links)];
+  console.log(FixedLinks.length);
   console.log(FixedLinks);
 
 for (let i = 0; i < FixedLinks.length; i++) {
