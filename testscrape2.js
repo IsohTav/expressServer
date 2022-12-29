@@ -86,19 +86,17 @@ for (let i = 0; i < FixedLinks.length; i++) {
     gameURL: links[i]
   
   }
-  const today = new Date();
+const today = new Date();
 const todayDate = today.getDate();
 const todayMonth = today.getMonth() + 1;
 const todayYear = today.getFullYear();
 
-for (const key of Object.keys(allScores)) {
-  const score = allScores[key];
-  const [date, time] = score.Gamedatetime.split(' ');
-  const [day, month] = date.split('.');
-  if (day === todayDate && month === todayMonth && todayYear) {
-    console.log(score);
-  }
+const [date, time] = allScores.Gamedatetime.split(' ');
+const [day, month] = date.split('.');
+if (day === todayDate && month === todayMonth && todayYear) {
+  console.log(allScores);
 }
+
 
 
   
