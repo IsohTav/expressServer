@@ -30,11 +30,12 @@ const puppeteer = require('puppeteer');
     links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
   }
   
-  console.log(links);
+  
+  const FixedLinks = [...new Set(links)];
+  console.log(FixedLinks);
 
-
-for (let i = 0; i < links.length; i++) {
-  await page.goto(links[i]);
+for (let i = 0; i < FixedLinks.length; i++) {
+  await page.goto(FixedLinks[i]);
   
   const homePlayer = await page.$$eval('div.duelParticipant div.duelParticipant__home', homePlayer => homePlayer.map(homePlayer => homePlayer.innerText));
   const awayPlayer = await page.$$eval('div.duelParticipant div.duelParticipant__away', awayPlayer => awayPlayer.map(awayPlayer => awayPlayer.innerText));
