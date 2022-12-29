@@ -86,9 +86,19 @@ for (let i = 0; i < FixedLinks.length; i++) {
     gameURL: links[i]
   
   }
-  console.log(allScores);
-  createRecord(allScores);
-  
+  const today = new Date();
+const todayDate = today.getDate();
+const todayMonth = today.getMonth() + 1;
+const todayYear = today.getFullYear();
+
+for (const score of allScores) {
+  const [date, time] = score.Gamedatetime.split(' ');
+  const [day, month] = date.split('.');
+  if (day === todayDate && month === todayMonth && todayYear) {
+    console.log(score);
+  }
+}
+
   
   
   
