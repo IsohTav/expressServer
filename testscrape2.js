@@ -91,13 +91,15 @@ const todayDate = today.getDate();
 const todayMonth = today.getMonth() + 1;
 const todayYear = today.getFullYear();
 
-for (const score of allScores) {
+for (const key of Object.keys(allScores)) {
+  const score = allScores[key];
   const [date, time] = score.Gamedatetime.split(' ');
   const [day, month] = date.split('.');
   if (day === todayDate && month === todayMonth && todayYear) {
     console.log(score);
   }
 }
+
 
   
   
