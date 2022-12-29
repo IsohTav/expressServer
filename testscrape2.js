@@ -94,6 +94,7 @@ const [day, month] = date.split('.');
 
 if (month == todayMonth && day == today.getDate()) {
   console.log(allScores);
+  createRecord(allScores);
 } else {
   console.log(`Dates do not match. Today: ${today.getDate()}.${todayMonth}, Event: ${day}.${month}`);
 }
