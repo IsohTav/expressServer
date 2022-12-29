@@ -91,10 +91,16 @@ const todayDate = today.getDate();
 const todayMonth = today.getMonth() + 1;
 const todayYear = today.getFullYear();
 
+console.log(`Today: ${todayDate}.${todayMonth}.${todayYear}`);
+
 const [date, time] = allScores.Gamedatetime.split(' ');
 const [day, month] = date.split('.');
-if (day === todayDate && month === todayMonth && todayYear) {
+console.log(`Event: ${day}.${month}`);
+
+if (day === todayDate && month === todayMonth) {
   console.log(allScores);
+} else {
+  console.log(`Dates do not match. Today: ${todayDate}.${todayMonth}.${todayYear}, Event: ${day}.${month}`);
 }
 
 
