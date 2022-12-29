@@ -31,12 +31,8 @@ const puppeteer = require('puppeteer');
   }
   
   console.log(links);
-  for (let i = 0; i < divsTrimmed.length; i++) {
-  links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
-}
-for (let i = 0; i < divsTrimmed.length; i++) {
-  links.push(`https://www.flashscore.com/match/${divsTrimmed[i]}/#/match-summary`);
-}
+
+
 for (let i = 0; i < links.length; i++) {
   await page.goto(links[i]);
   
@@ -89,7 +85,7 @@ for (let i = 0; i < links.length; i++) {
   
   }
   console.log(allScores);
-  
+  createRecord(allScores);
   
   
   
