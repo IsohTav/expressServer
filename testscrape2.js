@@ -87,21 +87,17 @@ for (let i = 0; i < FixedLinks.length; i++) {
   
   }
 const today = new Date();
-const todayDate = today.getDate();
 const todayMonth = today.getMonth() + 1;
-const todayYear = today.getFullYear();
-
-console.log(`Today: ${todayDate}.${todayMonth}.${todayYear}`);
 
 const [date, time] = allScores.Gamedatetime.split(' ');
 const [day, month] = date.split('.');
-console.log(`Event: ${day}.${month}`);
 
-if (day === todayDate && month === todayMonth) {
+if (month === todayMonth && day === today.getDate()) {
   console.log(allScores);
 } else {
-  console.log(`Dates do not match. Today: ${todayDate}.${todayMonth}.${todayYear}, Event: ${day}.${month}`);
+  console.log(`Dates do not match. Today: ${today.getDate()}.${todayMonth}, Event: ${day}.${month}`);
 }
+
 
 
 
